@@ -5,7 +5,7 @@ import { Autoplay } from "swiper/modules";
 document.addEventListener("DOMContentLoaded", function () {
   const swiper = new Swiper(".wedding-slider", {
     // Modules yang digunakan
-    // modules: [Autoplay],
+    modules: [Autoplay],
 
     // Konfigurasi dasar
     slidesPerView: 1.8, // Menampilkan slide tengah penuh + sedikit slide samping

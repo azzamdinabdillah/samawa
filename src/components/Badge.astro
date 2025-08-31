@@ -1,0 +1,23 @@
+---
+// Props untuk Badge component
+const {
+  text = "Popular",
+  icon = "/public/icons/crown.svg",
+  variant = "brown",
+  customClass = '',
+} = Astro.props;
+
+// Definisi warna berdasarkan variant
+const variantClasses = {
+  brown: "bg-brown text-white",
+  green: "bg-green text-white",
+};
+
+// Menggabungkan class
+const badgeClass = `flex items-center gap-2 py-1.5 px-3.5 rounded-full w-fit ${variantClasses[variant]} ${customClass}`;
+---
+
+<div class={badgeClass}>
+  <img src={icon} alt="">
+  <p class="text-14 font-bold uppercase">{text}</p>
+</div>

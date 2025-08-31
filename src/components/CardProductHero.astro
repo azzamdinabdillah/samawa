@@ -1,5 +1,6 @@
 ---
 import Button from './Button.astro';
+import Badge from './Badge.astro';
 
 // Nilai default untuk props
 const {
@@ -17,10 +18,7 @@ const cardClass = `p-5 md:rounded-[30px] bg-white w-full md:max-w-[350px] flex f
 
 <div class={cardClass}>
   {isPopular && (
-    <div class="flex items-center gap-2 bg-brown py-1.5 px-3.5 rounded-full w-fit">
-      <img src="/public/icons/crown.svg" alt="">
-      <p class="text-14 font-bold text-white uppercase">Popular</p>
-    </div>
+    <Badge />
   )}
 
   <div class="flex flex-col gap-1.5">
