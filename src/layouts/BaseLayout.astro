@@ -1,5 +1,6 @@
 ---
 import Navbar from "../components/Navbar.astro";
+import 'swiper/css/bundle';
 
 const {title = "Home"} = Astro.props;
 ---
@@ -11,10 +12,14 @@ const {title = "Home"} = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
         <link rel="stylesheet" href="/src/styles/global.css" />
+		
 		<title>{title} | Samawa</title>
 	</head>
 	<body>
         <Navbar/>
         <slot/>
+
+		<script src="/src/scripts/navbar.js"></script>
+		<script type="module" src="/src/scripts/swiper.js"></script>
 	</body>
 </html>

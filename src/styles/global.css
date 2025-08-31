@@ -1,14 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import "tailwindcss";
 
-*{
-    font-family: 'Poppins', sans-serif;
+@theme {
+  --color-pink: #ff48b6;
+  --color-brown: #5c2d2d;
 }
 
-.text-24{
-    @apply text-lg md:text-xl lg:text-2xl;
+* {
+  font-family: "Poppins", sans-serif;
 }
 
-.text-16{
-    @apply text-sm md:text-base lg:text-base;
+.text-14 {
+  @apply text-xs md:text-sm;
+}
+
+.text-24 {
+  @apply text-lg md:text-xl lg:text-2xl;
+}
+
+.text-28 {
+  @apply text-lg md:text-xl lg:text-2xl xl:text-[28px];
+}
+
+.text-16 {
+  @apply text-sm md:text-base lg:text-base;
+}
+
+.text-18 {
+  @apply text-sm md:text-base lg:text-lg;
+}
+
+.text-30 {
+  @apply text-2xl md:text-3xl lg:text-[30px];
 }

@@ -1,0 +1,36 @@
+---
+// Nilai default untuk props
+const {
+  text,
+  variant = 'outline-black',
+  customClass = '',
+  fullWidth = false,
+  type = 'button',
+  onClick,
+  disabled = false,
+} = Astro.props;
+
+// Menentukan class berdasarkan variant
+let variantClass = '';
+if (variant === 'pink') {
+  variantClass = 'bg-pink text-white';
+} else if (variant === 'outline-black') {
+  variantClass = 'bg-white text-black border border-black';
+}
+
+// Menentukan class untuk width
+const widthClass = fullWidth ? 'w-full' : '';
+
+// Menggabungkan semua class
+const buttonClass = `rounded-full py-3.5 px-5 ${variantClass} text-16 font-semibold ${widthClass} ${customClass}`;
+---
+
+<button
+  class={buttonClass}
+  type={type}
+  disabled={disabled}
+  onclick={onClick ? `(${onClick.toString()})()` : undefined}
+>
+  {text}
+  <slot />
+</button>

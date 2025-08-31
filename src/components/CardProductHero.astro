@@ -1,0 +1,47 @@
+---
+import Button from './Button.astro';
+
+// Nilai default untuk props
+const {
+  isPopular = false,
+  title,
+  price,
+  location,
+  vendor,
+  customClass = '',
+} = Astro.props;
+
+// Menggabungkan class
+const cardClass = `p-5 md:rounded-[30px] bg-white w-full md:max-w-[350px] flex flex-col gap-5 ${customClass}`;
+---
+
+<div class={cardClass}>
+  {isPopular && (
+    <div class="flex items-center gap-2 bg-brown py-1.5 px-3.5 rounded-full w-fit">
+      <img src="/public/icons/crown.svg" alt="">
+      <p class="text-14 font-bold text-white uppercase">Popular</p>
+    </div>
+  )}
+
+  <div class="flex flex-col gap-1.5">
+    <h3 class="text-28 text-black font-bold">{title}</h3>
+    <p class="text-pink text-18 font-semibold">{price}</p>
+  </div>
+
+  <div class="flex items-center gap-3.5">
+    <div class="flex items-center gap-1.5">
+      <img src="/public/icons/location.svg" alt="">
+      <p class="text-14 font-bold text-black">{location}</p>
+    </div>
+
+    <div class="flex items-center gap-1.5">
+      <img src="/public/icons/building-3.svg" alt="">
+      <p class="text-14 font-bold text-black">{vendor}</p>
+    </div>
+  </div>
+
+  <Button 
+    text="View Package" 
+    variant="pink"
+  />
+</div>
