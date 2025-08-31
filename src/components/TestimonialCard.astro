@@ -1,0 +1,42 @@
+---
+interface Props {
+  rating: number;
+  testimonial: string;
+  name: string;
+  occupation: string;
+  image: string;
+}
+
+const { rating, testimonial, name, occupation, image } = Astro.props;
+
+// Generate star rating
+const stars = Array.from({ length: 5 }, (_, i) => i < rating);
+---
+
+<div class="bg-white border border-[#e4e6eb] rounded-[20px] md:rounded-[30px] p-4 md:p-6 lg:p-[30px] w-[280px] md:w-[320px] lg:w-[340px] flex-shrink-0">
+  <!-- Star Rating -->
+  <div class="flex gap-1 mb-3 md:mb-4 lg:mb-5">
+    {stars.map(filled => (
+      <svg class="w-4 h-4 md:w-5 md:h-5 lg:w-[22px] lg:h-[22px]" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path 
+          d="M11 0L13.4697 8.03647H22L15.2651 12.9635L17.7348 21L11 16.0731L4.26516 21L6.73484 12.9635L0 8.03647H8.53034L11 0Z" 
+          fill={filled ? "#FFB800" : "#E4E6EB"}
+        />
+      </svg>
+    ))}
+  </div>
+
+  <!-- Testimonial Text -->
+  <p class="text-16 text-black leading-[24px] md:leading-[28px] mb-3 md:mb-4 lg:mb-5">{testimonial}</p>
+
+  <!-- User Info -->
+  <div class="flex gap-3 md:gap-4 lg:gap-5 items-center">
+    <div class="w-[50px] h-[50px] md:w-[60px] md:h-[60px] lg:w-[70px] lg:h-[70px] rounded-full overflow-hidden flex-shrink-0">
+      <img src={image} alt={name} class="w-full h-full object-cover" />
+    </div>
+    <div>
+      <h4 class="font-bold text-16 text-black leading-normal">{name}</h4>
+      <p class="text-16 text-black leading-normal">{occupation}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,138 @@
+---
+import SectionHeaderLeftRight from '../../SectionHeaderLeftRight.astro';
+import TestimonialCard from '../../TestimonialCard.astro';
+
+// Sample testimonial data - replace with actual data
+const testimonials = [
+  {
+    rating: 5,
+    testimonial: "Keren banget Samawa, gue bisa nikah dengan pengalaman bagus dengan harga terjangkau! God.",
+    name: "Andriana Putri",
+    occupation: "Programmer",
+    image: "/images/wedding-1.png" // placeholder image
+  },
+  {
+    rating: 5,
+    testimonial: "Keren banget Samawa, gue bisa nikah dengan pengalaman bagus dengan harga terjangkau! God.",
+    name: "Andriana Putri",
+    occupation: "Programmer",
+    image: "/images/wedding-2.png" // placeholder image
+  },
+  {
+    rating: 5,
+    testimonial: "Keren banget Samawa, gue bisa nikah dengan pengalaman bagus dengan harga terjangkau! God.",
+    name: "Andriana Putri",
+    occupation: "Programmer",
+    image: "/images/wedding-1.png" // placeholder image
+  },
+  {
+    rating: 5,
+    testimonial: "Keren banget Samawa, gue bisa nikah dengan pengalaman bagus dengan harga terjangkau! God.",
+    name: "Andriana Putri",
+    occupation: "Programmer",
+    image: "/images/wedding-2.png" // placeholder image
+  },
+  {
+    rating: 5,
+    testimonial: "Keren banget Samawa, gue bisa nikah dengan pengalaman bagus dengan harga terjangkau! God.",
+    name: "Andriana Putri",
+    occupation: "Programmer",
+    image: "/images/wedding-1.png" // placeholder image
+  },
+  {
+    rating: 5,
+    testimonial: "Keren banget Samawa, gue bisa nikah dengan pengalaman bagus dengan harga terjangkau! God.",
+    name: "Andriana Putri",
+    occupation: "Programmer",
+    image: "/images/wedding-2.png" // placeholder image
+  }
+];
+---
+
+<section class="">
+  <div class="container mx-auto px-4 md:px-6 lg:px-4">
+    <!-- Header Section -->
+    <SectionHeaderLeftRight 
+      title="Happy Stories of\nOur Wedding"
+      buttonText="Explore All"
+      buttonVariant="outline-black"
+      customContainerClass="max-w-[1130px] mx-auto"
+    />
+
+    <!-- Testimonials Marquee -->
+    <div class="overflow-hidden">
+      <div class="marquee-container gap-4 md:gap-6 lg:gap-10">
+        <div class="marquee-content">
+          {testimonials.map((testimonial) => (
+            <TestimonialCard 
+              rating={testimonial.rating}
+              testimonial={testimonial.testimonial}
+              name={testimonial.name}
+              occupation={testimonial.occupation}
+              image={testimonial.image}
+            />
+          ))}
+        </div>
+        <!-- Duplicate for seamless loop -->
+        <div class="marquee-content" aria-hidden="true">
+          {testimonials.map((testimonial) => (
+            <TestimonialCard 
+              rating={testimonial.rating}
+              testimonial={testimonial.testimonial}
+              name={testimonial.name}
+              occupation={testimonial.occupation}
+              image={testimonial.image}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .marquee-container {
+    display: flex;
+    width: 200%;
+    animation: marquee 40s linear infinite;
+  }
+
+  .marquee-content {
+    display: flex;
+    gap: 16px;
+    flex: 0 0 50%;
+  }
+
+  @media (min-width: 768px) {
+    .marquee-container {
+      animation: marquee 35s linear infinite;
+    }
+    .marquee-content {
+      gap: 24px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .marquee-container {
+      animation: marquee 30s linear infinite;
+    }
+    .marquee-content {
+      gap: 40px;
+    }
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Pause animation on hover */
+  .marquee-container:hover {
+    animation-play-state: paused;
+  }
+</style>
+

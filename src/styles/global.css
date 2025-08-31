@@ -5,7 +5,7 @@
   --color-pink: #ff48b6;
   --color-brown: #5c2d2d;
   --color-green: #22c55e;
-  --color-gray: #F7F7F9;
+  --color-gray: #f7f7f9;
 }
 
 * {
@@ -40,6 +40,39 @@
   @apply text-2xl md:text-3xl lg:text-[30px];
 }
 
-.py-70{
-    @apply py-8 md:py-14 lg:py-[70px]
+.py-70 {
+  @apply py-8 md:py-14 lg:py-[70px];
+}
+
+.marquee-container {
+  display: flex;
+  width: max-content;
+  animation-name: marquee;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 1s; /* default untuk mobile */
+}
+
+@media (min-width: 1024px) {
+  .marquee-container {
+    animation-duration: 10s; /* override untuk layar besar */
+  }
+}
+
+.marquee-content {
+  @apply flex gap-4 lg:gap-10 basis-1/2;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause animation on hover */
+.marquee-container:hover {
+  animation-play-state: paused;
 }
