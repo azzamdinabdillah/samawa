@@ -5,6 +5,7 @@
   --color-pink: #ff48b6;
   --color-brown: #5c2d2d;
   --color-green: #22c55e;
+  --color-gray: #F7F7F9;
 }
 
 * {
@@ -37,4 +38,8 @@
 
 .text-30 {
   @apply text-2xl md:text-3xl lg:text-[30px];
+}
+
+.py-70{
+    @apply py-8 md:py-14 lg:py-[70px]
 }

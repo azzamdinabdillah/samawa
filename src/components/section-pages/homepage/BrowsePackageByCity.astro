@@ -1,0 +1,92 @@
+---
+import SectionHeaderLeftRight from '../../SectionHeaderLeftRight.astro';
+import CardCityCategory from '../../CardCityCategory.astro';
+
+// Data kota berdasarkan design Figma
+const cities = [
+  {
+    id: 1,
+    name: 'London',
+    packageCount: '183,498 Packages',
+    image: '/images/wedding-1.png', // menggunakan placeholder sementara
+    isActive: false
+  },
+  {
+    id: 2,
+    name: 'Jakarta', 
+    packageCount: '183,498 Packages',
+    image: '/images/wedding-2.png',
+    isActive: true // Jakarta sebagai kota yang aktif/selected sesuai design
+  },
+  {
+    id: 3,
+    name: 'Bogor',
+    packageCount: '183,498 Packages', 
+    image: '/images/wedding-1.png',
+    isActive: false
+  },
+  {
+    id: 4,
+    name: 'Luxembourg',
+    packageCount: '183,498 Packages',
+    image: '/images/wedding-2.png',
+    isActive: false
+  },
+  {
+    id: 5,
+    name: 'Palembang',
+    packageCount: '183,498 Packages',
+    image: '/images/wedding-1.png',
+    isActive: false
+  },
+  {
+    id: 6,
+    name: 'New York',
+    packageCount: '183,498 Packages',
+    image: '/images/wedding-2.png',
+    isActive: false
+  }
+];
+
+// Bagi cities menjadi dua baris (3 kota per baris)
+const firstRowCities = cities.slice(0, 3);
+const secondRowCities = cities.slice(3, 6);
+---
+
+<sectiown class="w-full bg-gray py-70">
+    <div class="max-w-[1000px] mx-auto">
+        <!-- Header dengan title dan button -->
+        <SectionHeaderLeftRight 
+          title="Browse Packages\nCity Recomendation"
+          buttonText="Explore All"
+          buttonVariant="outline-black"
+          buttonCustomClass='!bg-transparent'
+          customTitleClass="text-[30px]"
+        />
+      
+        <!-- Grid kota dalam dua baris -->
+        <div class="flex flex-col gap-[30px]">
+          <!-- Baris pertama -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-[30px]">
+            {firstRowCities.map(city => (
+              <CardCityCategory
+                cityName={city.name}
+                packageCount={city.packageCount}
+                image={city.image}
+              />
+            ))}
+          </div>
+      
+          <!-- Baris kedua -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-[30px]">
+            {secondRowCities.map(city => (
+              <CardCityCategory
+                cityName={city.name}
+                packageCount={city.packageCount}
+                image={city.image}
+              />
+            ))}
+          </div>
+        </div>
+    </div>
+</sectiown>

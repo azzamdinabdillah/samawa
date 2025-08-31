@@ -1,8 +1,9 @@
 ---
 import BestPackages from "../components/section-pages/homepage/BestPackages.astro";
+import BrowsePackageByCity from "../components/section-pages/homepage/BrowsePackageByCity.astro";
 import Hero from "../components/section-pages/homepage/Hero.astro";
 import Reason from "../components/section-pages/homepage/Reason.astro";
-import BaseLayout from "/src/layouts/BaseLayout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Home">
@@ -10,5 +11,6 @@ import BaseLayout from "/src/layouts/BaseLayout.astro";
     <Hero/>
     <Reason/>
     <BestPackages/>
+    <BrowsePackageByCity/>
   </div>
 </BaseLayout>
