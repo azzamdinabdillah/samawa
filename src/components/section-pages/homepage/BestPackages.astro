@@ -1,0 +1,96 @@
+---
+import CardPackage from '../../CardPackage.astro';
+import Button from '../../Button.astro';
+
+// Data wedding packages
+const weddingPackages = [
+  {
+    id: 1,
+    isPopular: true,
+    title: "Nikah Muda Abadi\nPantai Bali Nusa Penida",
+    price: "Rp 198.493.000",
+    location: "Luxemborgio City",
+    vendor: "Tentram Organizer",
+    image: "/images/wedding-1.png"
+  },
+  {
+    id: 2,
+    isPopular: false,
+    title: "Honeymoon Fast",
+    price: "Rp 129.999",
+    location: "Luxemborgio City", 
+    vendor: "Tentram Organizer",
+    image: "/images/wedding-2.png"
+  },
+  {
+    id: 3,
+    isPopular: true,
+    title: "Nikah Muda Abadi\nPantai Bali Nusa Penida",
+    price: "Rp 198.493.000",
+    location: "Luxemborgio City",
+    vendor: "Tentram Organizer", 
+    image: "/images/wedding-1.png"
+  },
+  {
+    id: 4,
+    isPopular: false,
+    title: "Honeymoon Fast",
+    price: "Rp 129.999",
+    location: "Luxemborgio City",
+    vendor: "Tentram Organizer",
+    image: "/images/wedding-2.png"
+  }
+];
+---
+
+<section class="px-4 max-w-[1130px] mx-auto">
+  <!-- Header Section -->
+  <div class="flex flex-col md:flex-row md:items-center justify-between mb-[30px] gap-4">
+    <div>
+      <h2 class="text-30 font-bold text-black leading-normal">
+        Our Latest & Best<br>
+        Wedding Packages
+      </h2>
+    </div>
+    <div class="flex-shrink-0">
+      <Button 
+        text="Explore All"
+        variant="outline-black"
+        customClass="rounded-[50px] lg:py-[14px]"
+      />
+    </div>
+  </div>
+
+  <!-- Cards Container -->
+  <div class="overflow-x-auto md:overflow-x-visible no-scrollbar">
+    <!-- Mobile: Horizontal Scroll -->
+    <div class="flex gap-4 md:hidden pb-4">
+      {weddingPackages.map((pkg) => (
+        <div class="flex-shrink-0 w-[280px]">
+          <CardPackage
+            isPopular={pkg.isPopular}
+            title={pkg.title}
+            price={pkg.price}
+            location={pkg.location}
+            vendor={pkg.vendor}
+            image={pkg.image}
+          />
+        </div>
+      ))}
+    </div>
+    
+    <!-- Tablet & Desktop: Grid -->
+    <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[30px]">
+      {weddingPackages.map((pkg) => (
+        <CardPackage
+          isPopular={pkg.isPopular}
+          title={pkg.title}
+          price={pkg.price}
+          location={pkg.location}
+          vendor={pkg.vendor}
+          image={pkg.image}
+        />
+      ))}
+    </div>
+  </div>
+</section>

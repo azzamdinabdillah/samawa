@@ -4,10 +4,15 @@
 @theme {
   --color-pink: #ff48b6;
   --color-brown: #5c2d2d;
+  --color-green: #22c55e;
 }
 
 * {
   font-family: "Poppins", sans-serif;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .text-14 {

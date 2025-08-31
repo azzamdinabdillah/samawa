@@ -1,0 +1,62 @@
+---
+import Badge from './Badge.astro';
+
+// Nilai default untuk props
+const {
+  isPopular = false,
+  title,
+  price,
+  location,
+  vendor,
+  image,
+  customClass = '',
+} = Astro.props;
+
+// Menggabungkan class
+const cardClass = `flex flex-col gap-4 w-full ${customClass}`;
+---
+
+<div class={cardClass}>
+  <!-- Photo dengan Badge Popular -->
+  <div class="relative">
+    <div class="w-full h-[240px] md:h-[300px] bg-gray-200 rounded-[20px] md:rounded-[30px] overflow-hidden">
+      <img 
+        src={image} 
+        alt={title}
+        class="w-full h-full object-cover"
+      />
+    </div>
+    {isPopular && (
+      <div class="absolute top-3 left-3 md:top-5 md:left-5">
+        <Badge 
+          text="POPULAR"
+          icon="/icons/crown.svg"
+          variant="brown"
+        />
+      </div>
+    )}
+  </div>
+
+  <!-- Title -->
+  <div class="h-[60px]">
+    <h3 class="text-[20px] font-bold text-black leading-[30px]" set:html={title.replace(/\n/g, '<br>')}></h3>
+  </div>
+
+  <!-- Location & Vendor Info -->
+  <div class="flex flex-col gap-3.5">
+    <div class="flex items-center gap-1.5">
+      <img src="/icons/location.svg" alt="" class="w-5 h-5">
+      <p class="text-14 font-bold text-black">{location}</p>
+    </div>
+
+    <div class="flex items-center gap-1.5">
+      <img src="/icons/building-3.svg" alt="" class="w-5 h-5">
+      <p class="text-14 font-bold text-black">{vendor}</p>
+    </div>
+  </div>
+
+  <!-- Price -->
+  <div>
+    <p class="text-16 font-bold text-pink">{price}</p>
+  </div>
+</div>

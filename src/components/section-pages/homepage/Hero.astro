@@ -48,6 +48,7 @@ const weddingPackages = [
 ];
 ---
 
+<div class="">
 <div class="swiper wedding-slider w-full">
     <div class="swiper-wrapper">
       {weddingPackages.map((pkg) => (
@@ -60,10 +61,11 @@ const weddingPackages = [
               price={pkg.price}
               location={pkg.location}
               vendor={pkg.vendor}
-              customClass="absolute bottom-0 md:bottom-auto md:right-auto md:top-1/2 left-0 right-0 md:left-[10%] md:-translate-y-1/2"
+              customClass="absolute bottom-4 md:bottom-auto md:right-auto md:top-1/2 !w-[90%] left-1/2 -translate-x-1/2 md:translate-x-0 md:w-auto md:left-[10%] md:-translate-y-1/2"
             />
           </div>
         </div>
       ))}
     </div>
   </div>
+</div>
