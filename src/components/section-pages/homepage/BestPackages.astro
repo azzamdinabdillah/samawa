@@ -1,6 +1,6 @@
 ---
 import CardPackage from '../../CardPackage.astro';
-import Button from '../../Button.astro';
+import SectionHeaderLeftRight from '../../SectionHeaderLeftRight.astro';
 
 // Data wedding packages
 const weddingPackages = [
@@ -43,23 +43,14 @@ const weddingPackages = [
 ];
 ---
 
-<section class="px-4 max-w-[1130px] mx-auto">
+<section class="px-4 max-w-[1130px] md:mx-auto overflow-hidden">
   <!-- Header Section -->
-  <div class="flex flex-col md:flex-row md:items-center justify-between mb-[30px] gap-4">
-    <div>
-      <h2 class="text-30 font-bold text-black leading-normal">
-        Our Latest & Best<br>
-        Wedding Packages
-      </h2>
-    </div>
-    <div class="flex-shrink-0">
-      <Button 
-        text="Explore All"
-        variant="outline-black"
-        customClass="rounded-[50px] lg:py-[14px]"
-      />
-    </div>
-  </div>
+  <SectionHeaderLeftRight 
+    title="Our Latest & Best\nWedding Packages"
+    buttonText="Explore All"
+    buttonVariant="outline-black"
+    buttonCustomClass="rounded-[50px] lg:py-[14px]"
+  />
 
   <!-- Cards Container -->
   <div class="overflow-x-auto md:overflow-x-visible no-scrollbar">

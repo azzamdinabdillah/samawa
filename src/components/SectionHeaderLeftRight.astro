@@ -1,0 +1,44 @@
+---
+import Button from './Button.astro';
+
+interface Props {
+  title: string;
+  buttonText?: string;
+  buttonVariant?: 'pink' | 'outline-black';
+  buttonCustomClass?: string;
+  showButton?: boolean;
+  customTitleClass?: string;
+  customContainerClass?: string;
+}
+
+const {
+  title,
+  buttonText = 'Explore All',
+  buttonVariant = 'outline-black',
+  buttonCustomClass = 'rounded-[50px] lg:py-[14px]',
+  showButton = true,
+  customTitleClass = '',
+  customContainerClass = ''
+} = Astro.props;
+
+// Default title class
+const titleClass = `text-30 font-bold text-black leading-normal ${customTitleClass}`.trim();
+
+// Default container class  
+const containerClass = `flex flex-col md:flex-row md:items-center justify-between mb-[30px] gap-4 ${customContainerClass}`.trim();
+---
+
+<div class={containerClass}>
+  <div>
+    <h2 class={titleClass} set:html={title.replace(/\n/g, '<br>')} />
+  </div>
+  {showButton && (
+    <div class="flex-shrink-0">
+      <Button 
+        text={buttonText}
+        variant={buttonVariant}
+        customClass={buttonCustomClass}
+      />
+    </div>
+  )}
+</div>

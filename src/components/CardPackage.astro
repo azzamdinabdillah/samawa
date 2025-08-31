@@ -12,22 +12,32 @@ const {
   customClass = '',
 } = Astro.props;
 
-// Menggabungkan class
-const cardClass = `flex flex-col gap-4 w-full ${customClass}`;
+// Menggabungkan class dengan hover effects sederhana
+const cardClass = `flex flex-col gap-4 w-full cursor-pointer transition-all duration-300 ease-out hover:-translate-y-1 group ${customClass}`;
 ---
 
 <div class={cardClass}>
   <!-- Photo dengan Badge Popular -->
-  <div class="relative">
+  <div class="relative overflow-hidden rounded-[20px] md:rounded-[30px]">
     <div class="w-full h-[240px] md:h-[300px] bg-gray-200 rounded-[20px] md:rounded-[30px] overflow-hidden">
       <img 
         src={image} 
         alt={title}
-        class="w-full h-full object-cover"
+        class="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-105"
       />
     </div>
+    
+    <!-- Overlay dengan icon detail di tengah -->
+    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[20px] md:rounded-[30px] flex items-center justify-center">
+      <div class="bg-white/90 backdrop-blur-sm rounded-full p-3 md:p-4 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+        <svg class="w-6 h-6 md:w-8 md:h-8 text-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+        </svg>
+      </div>
+    </div>
     {isPopular && (
-      <div class="absolute top-3 left-3 md:top-5 md:left-5">
+      <div class="absolute top-3 left-3 md:top-5 md:left-5 z-20">
         <Badge 
           text="POPULAR"
           icon="/icons/crown.svg"
