@@ -53,21 +53,21 @@ const firstRowCities = cities.slice(0, 3);
 const secondRowCities = cities.slice(3, 6);
 ---
 
-<sectiown class="w-full bg-gray py-70">
-    <div class="max-w-[1000px] mx-auto">
+<section class="w-full bg-gray py-70">
+    <div class="max-w-[1000px] mx-auto px-4 md:px-6 lg:px-8">
         <!-- Header dengan title dan button -->
         <SectionHeaderLeftRight 
           title="Browse Packages\nCity Recomendation"
           buttonText="Explore All"
           buttonVariant="outline-black"
           buttonCustomClass='!bg-transparent'
-          customTitleClass="text-[30px]"
+          customTitleClass="text-[24px] md:text-[28px] lg:text-[30px]"
         />
       
         <!-- Grid kota dalam dua baris -->
-        <div class="flex flex-col gap-[30px]">
+        <div class="flex flex-col gap-4 md:gap-6 lg:gap-[30px]">
           <!-- Baris pertama -->
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-[30px]">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-[30px]">
             {firstRowCities.map(city => (
               <CardCityCategory
                 cityName={city.name}
@@ -78,7 +78,7 @@ const secondRowCities = cities.slice(3, 6);
           </div>
       
           <!-- Baris kedua -->
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-[30px]">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-[30px]">
             {secondRowCities.map(city => (
               <CardCityCategory
                 cityName={city.name}
@@ -89,4 +89,4 @@ const secondRowCities = cities.slice(3, 6);
           </div>
         </div>
     </div>
-</sectiown>
+</section>
