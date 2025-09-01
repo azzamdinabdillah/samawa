@@ -1,0 +1,55 @@
+---
+import Button from "../../components/Button.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Booking Finished" backgroundColor="bg-gray">
+  <div class="flex items-center justify-center px-4 md:px-6 lg:px-8">
+    <div class="bg-white rounded-3xl md:rounded-[40px] p-6 md:p-8 lg:p-10 w-full max-w-md md:max-w-lg lg:max-w-[430px] flex flex-col gap-4 md:gap-5">
+      <!-- Header -->
+      <div class="text-center">
+        <h1 class="text-30 font-bold text-black leading-tight">
+          Booking Finished!
+        </h1>
+      </div>
+
+      <!-- Image Section -->
+      <div class="flex justify-center">
+        <div class="relative w-full h-[120px] md:h-[140px] lg:h-[160px]">
+          <img src="/public/images/wedding-1.png" alt="" class="w-full h-full object-cover rounded-2xl md:rounded-3xl">
+        </div>
+      </div>
+
+      <!-- Booking ID Section -->
+      <div class="flex flex-col gap-[10px]">
+        <label class="block text-16 lg:text-[16px] font-normal text-black">
+          Booking ID
+        </label>
+        
+        <div class="relative">
+          <div class="flex items-center gap-2.5 px-4 md:px-5 py-3 md:py-3.5 border border-gray-200 rounded-full">
+            <!-- Icon -->
+            <div class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0">
+              <img src="/public/icons/note-favorite.svg" alt="">
+            </div>
+            
+            <!-- Booking ID Text -->
+            <span class="text-16 lg:text-[16px] font-semibold text-black">
+              SMWBWA1934
+            </span>
+          </div>
+        </div>
+        
+        <p class="text-16 lg:text-[16px] font-normal text-black leading-relaxed">
+          Gunakan kode booking di atas untuk memeriksa status pemesananmu
+        </p>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col gap-3">
+        <Button variant="pink" fullWidth>Booking Other Package</Button>
+        <Button variant="outline-black" fullWidth>View My Booking</Button>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
