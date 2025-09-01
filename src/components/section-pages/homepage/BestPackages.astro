@@ -3,7 +3,7 @@ import CardPackage from '../../CardPackage.astro';
 import SectionHeaderLeftRight from '../../SectionHeaderLeftRight.astro';
 
 // Data wedding packages
-const weddingPackages = [
+export const weddingPackages = [
   {
     id: 1,
     isPopular: true,
@@ -39,7 +39,43 @@ const weddingPackages = [
     location: "Luxemborgio City",
     vendor: "Tentram Organizer",
     image: "/images/wedding-2.png"
-  }
+  },
+  {
+    id: 5,
+    isPopular: false,
+    title: "Paket Akad Hemat",
+    price: "Rp 75.000.000",
+    location: "Jakarta Selatan",
+    vendor: "Sakinah Wedding",
+    image: "/images/wedding-1.png"
+  },
+  {
+    id: 6,
+    isPopular: true,
+    title: "Royal Wedding Package",
+    price: "Rp 350.000.000",
+    location: "Bandung",
+    vendor: "Royal Organizer",
+    image: "/images/wedding-1.png"
+  },
+  {
+    id: 7,
+    isPopular: false,
+    title: "Intimate Garden Party",
+    price: "Rp 120.000.000",
+    location: "Bogor",
+    vendor: "Green Venue",
+    image: "/images/wedding-1.png"
+  },
+  {
+    id: 8,
+    isPopular: true,
+    title: "Luxury Ballroom Wedding",
+    price: "Rp 500.000.000",
+    location: "Surabaya",
+    vendor: "Grand Event",
+    image: "/images/wedding-1.png"
+  },
 ];
 ---
 
@@ -56,7 +92,7 @@ const weddingPackages = [
   <div class="overflow-x-auto md:overflow-x-visible no-scrollbar">
     <!-- Mobile: Horizontal Scroll -->
     <div class="flex gap-4 md:hidden pb-4">
-      {weddingPackages.map((pkg) => (
+      {weddingPackages.slice(0, 4).map((pkg) => (
         <div class="flex-shrink-0 w-[280px]">
           <CardPackage
             isPopular={pkg.isPopular}
@@ -72,7 +108,7 @@ const weddingPackages = [
     
     <!-- Tablet & Desktop: Grid -->
     <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[30px]">
-      {weddingPackages.map((pkg) => (
+      {weddingPackages.slice(0, 4).map((pkg) => (
         <CardPackage
           isPopular={pkg.isPopular}
           title={pkg.title}

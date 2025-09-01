@@ -69,22 +69,26 @@ const secondRowCities = cities.slice(3, 6);
           <!-- Baris pertama -->
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-[30px]">
             {firstRowCities.map(city => (
+              <a href="/browse-by-city">
               <CardCityCategory
                 cityName={city.name}
-                packageCount={city.packageCount}
-                image={city.image}
-              />
+                  packageCount={city.packageCount}
+                  image={city.image}
+                />
+              </a>
             ))}
           </div>
       
           <!-- Baris kedua -->
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-[30px]">
             {secondRowCities.map(city => (
+              <a href="/browse-by-city">
               <CardCityCategory
                 cityName={city.name}
                 packageCount={city.packageCount}
                 image={city.image}
-              />
+                />
+              </a>
             ))}
           </div>
         </div>

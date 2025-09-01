@@ -1,0 +1,107 @@
+---
+import CardPackage from "../components/CardPackage.astro";
+import { weddingPackages } from "../components/section-pages/homepage/BestPackages.astro";
+import Hero from "../components/section-pages/homepage/Hero.astro";
+import Testimonial from "../components/section-pages/homepage/Testimonial.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Browse by City">
+  <div class="flex flex-col gap-8 md:gap-14 lg:gap-[70px]">
+    <div>
+      <!-- Header Section -->
+      <div
+        class="flex max-w-1130 px-global mx-auto flex-col md:flex-row md:items-center md:justify-between w-full mb-6 md:mb-8 gap-2 md:gap-0"
+      >
+        <div class="flex flex-col gap-2 md:gap-2.5 items-start justify-start">
+          <h1
+            class="font-bold leading-normal text-3xl md:text-[40px] text-black"
+          >
+            Wedding Packages<br />in Jakarta City
+          </h1>
+        </div>
+        <div
+          class="flex flex-row md:flex-col gap-2 items-center md:items-end justify-start"
+        >
+          <div class="flex items-center gap-1">
+            {
+              Array.from({ length: 5 }).map((_, i) => (
+                <svg
+                  class="w-5 h-5 md:w-6 md:h-6"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style="display: inline;"
+                  key={i}
+                >
+                  <path
+                    d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+                    fill="#FFD700"
+                  />
+                </svg>
+              ))
+            }
+          </div>
+          <div class="font-bold text-sm md:text-base text-black">(18,493)</div>
+        </div>
+      </div>
+      <Hero />
+    </div>
+
+    <!-- Best Wedding Packages -->
+    <section class="w-full px-4 md:px-6 lg:px-8 bg-white">
+      <div class="max-w-[1100px] mx-auto">
+        <!-- Title -->
+        <div class="text-center mb-8 md:mb-10 lg:mb-12">
+          <h2
+            class="text-2xl md:text-3xl lg:text-[30px] font-bold text-black leading-normal px-4"
+          >
+            Browse Our Best Selection <br />
+            Wedding Packages
+          </h2>
+        </div>
+
+        <!-- Cards Container -->
+        <div class="overflow-x-auto md:overflow-x-visible no-scrollbar">
+          <!-- Mobile: Horizontal Scroll -->
+          <div class="flex gap-4 md:hidden pb-4">
+            {
+              weddingPackages.map((pkg) => (
+                <div class="flex-shrink-0 w-[280px]">
+                  <CardPackage
+                    isPopular={pkg.isPopular}
+                    title={pkg.title}
+                    price={pkg.price}
+                    location={pkg.location}
+                    vendor={pkg.vendor}
+                    image={pkg.image}
+                  />
+                </div>
+              ))
+            }
+          </div>
+
+          <!-- Tablet & Desktop: Grid -->
+          <div
+            class="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[30px]"
+          >
+            {
+              weddingPackages.map((pkg) => (
+                <CardPackage
+                  isPopular={pkg.isPopular}
+                  title={pkg.title}
+                  price={pkg.price}
+                  location={pkg.location}
+                  vendor={pkg.vendor}
+                  image={pkg.image}
+                />
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Testimonial />
+  </div>
+</BaseLayout>
