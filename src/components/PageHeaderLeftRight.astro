@@ -1,0 +1,82 @@
+---
+interface Props {
+  title: string;
+  ratingCount?: string | number;
+  stars?: number;
+  showRating?: boolean;
+  customContainerClass?: string;
+  customTitleClass?: string;
+  subTitleHtml?: string;
+  customSubTitleClass?: string;
+  customRatingContainerClass?: string;
+  customStarClass?: string;
+}
+
+const {
+  title,
+  ratingCount = "",
+  stars = 5,
+  showRating = true,
+  customContainerClass = "",
+  customTitleClass = "",
+  subTitleHtml = "",
+  customSubTitleClass = "",
+  customRatingContainerClass = "",
+  customStarClass = "",
+} = Astro.props as Props;
+
+const containerClass =
+  `flex max-w-1130 px-global mx-auto flex-col md:flex-row md:items-center md:justify-between w-full mb-6 md:mb-8 gap-2 md:gap-0 ${customContainerClass}`.trim();
+const titleClass =
+  `font-bold leading-normal text-3xl md:text-[40px] text-black ${customTitleClass}`.trim();
+const subTitleClass =
+  `text-sm md:text-base text-black ${customSubTitleClass}`.trim();
+const ratingContainerClass =
+  `flex flex-row md:flex-col gap-2 items-center md:items-end justify-start ${customRatingContainerClass}`.trim();
+const starClass = `w-5 h-5 md:w-6 md:h-6 ${customStarClass}`.trim();
+---
+
+<div class={containerClass}>
+  <div class="flex flex-col gap-2 md:gap-2.5 items-start justify-start">
+    <h1 class={titleClass} set:html={title.replace(/\n/g, "<br />")} />
+    {
+      (Astro.slots.has("subTitle") || subTitleHtml !== "") && (
+        <div class={subTitleClass}>
+          {Astro.slots.has("subTitle") ? (
+            <slot name="subTitle" />
+          ) : (
+            <div set:html={subTitleHtml} />
+          )}
+        </div>
+      )
+    }
+  </div>
+  {
+    showRating && (
+      <div class={ratingContainerClass}>
+        <div class="flex items-center gap-1">
+          {Array.from({ length: stars }).map(() => (
+            <svg
+              class={starClass}
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              style="display: inline;"
+            >
+              <path
+                d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+                fill="#FFD700"
+              />
+            </svg>
+          ))}
+        </div>
+        {ratingCount !== "" && (
+          <div class="font-bold text-sm md:text-base text-black">
+            ({String(ratingCount)})
+          </div>
+        )}
+      </div>
+    )
+  }
+  {!showRating && <div />}
+</div>
