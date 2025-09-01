@@ -17,8 +17,8 @@ const {title = "Home", backgroundColor = "bg-white"} = Astro.props;
 		<title>{title} | Samawa</title>
 	</head>
 	<body class={backgroundColor}>
-		<div class="flex flex-col gap-8 md:gap-14 lg:gap-[70px]">
-			<Navbar/>
+		<Navbar/>
+		<div class="flex flex-col gap-8 md:gap-14 lg:gap-[70px] mt-20 md:mt-24 lg:mt-32">
 			<slot/>
 			<Footer/>
 		</div>

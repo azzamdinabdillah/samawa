@@ -3,10 +3,10 @@ import Link from "./Link.astro";
 import Button from "./Button.astro";
 ---
 
-<nav class="relative">
-    <div class="flex justify-between items-center max-w-[1130px] mx-auto py-7.5 px-4 md:px-6 xl:px-0">
+<nav id="navbar" class="fixed left-1/2 -translate-x-1/2 top-0 w-full z-40 transition-all duration-300 ease-in-out bg-white py-5">
+    <div class="flex justify-between items-center w-full max-w-[1130px] mx-auto px-4 md:px-6 xl:px-0">
         <div class="flex items-center gap-2.5">
-            <img src="/public/icons/logo.svg" alt="">
+            <img src="/icons/logo.svg" alt="">
             <p class="text-2xl text-black font-bold">Samawa</p>
         </div>
 
@@ -39,40 +39,40 @@ import Button from "./Button.astro";
             <span class="w-6 h-0.5 bg-black"></span>
         </button>
     </div>
+</nav>
 
-    <!-- Mobile Drawer - initially hidden, toggled with JavaScript -->
-    <div id="mobile-drawer" class="fixed inset-0 bg-white z-50 transform -translate-x-full transition-transform duration-300 ease-in-out lg:hidden">
-        <div class="flex flex-col h-full p-6">
-            <div class="flex justify-between items-center mb-8">
-                <div class="flex items-center gap-2.5">
-                    <img src="/public/icons/logo.svg" alt="">
-                    <p class="text-2xl text-black font-bold">Samawa</p>
-                </div>
-                <button id="close-drawer" class="p-2">
-                    <span class="block w-6 h-0.5 bg-black transform rotate-45 translate-y-0.5"></span>
-                    <span class="block w-6 h-0.5 bg-black transform -rotate-45"></span>
-                </button>
+<!-- Mobile Drawer - initially hidden, toggled with JavaScript -->
+<div id="mobile-drawer" class="fixed inset-0 bg-white z-50 transform -translate-x-full transition-transform duration-300 ease-in-out lg:hidden">
+    <div class="flex flex-col h-full p-6">
+        <div class="flex justify-between items-center mb-8">
+            <div class="flex items-center gap-2.5">
+                <img src="/icons/logo.svg" alt="">
+                <p class="text-2xl text-black font-bold">Samawa</p>
             </div>
-            
-            <div class="flex flex-col gap-6 mb-8">
-                <Link href="/" customClass="text-xl">Home</Link>
-                <Link href="/" customClass="text-xl">Category</Link>
-                <Link href="/" customClass="text-xl">Packages</Link>
-                <Link href="/" customClass="text-xl">Testimonials</Link>
-            </div>
-            
-            <div class="flex flex-col gap-4 mt-auto">
-                <Button 
-                    text="Contact Us" 
-                    variant="outline-black" 
-                    fullWidth={true}
-                />
-                <Button 
-                    text="My Booking" 
-                    variant="pink" 
-                    fullWidth={true}
-                />
-            </div>
+            <button id="close-drawer" class="p-2">
+                <span class="block w-6 h-0.5 bg-black transform rotate-45 translate-y-0.5"></span>
+                <span class="block w-6 h-0.5 bg-black transform -rotate-45"></span>
+            </button>
+        </div>
+        
+        <div class="flex flex-col gap-6 mb-8">
+            <Link href="/" customClass="text-xl">Home</Link>
+            <Link href="/" customClass="text-xl">Category</Link>
+            <Link href="/" customClass="text-xl">Packages</Link>
+            <Link href="/" customClass="text-xl">Testimonials</Link>
+        </div>
+        
+        <div class="flex flex-col gap-4 mt-auto">
+            <Button 
+                text="Contact Us" 
+                variant="outline-black" 
+                fullWidth={true}
+            />
+            <Button 
+                text="My Booking" 
+                variant="pink" 
+                fullWidth={true}
+            />
         </div>
     </div>
-</nav>
+</div>
