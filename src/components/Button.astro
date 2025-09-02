@@ -13,9 +13,9 @@ const {
 // Menentukan class berdasarkan variant
 let variantClass = '';
 if (variant === 'pink') {
-  variantClass = 'bg-pink text-white';
+  variantClass = 'bg-pink text-white hover:bg-[#ff69b4] transition-all duration-200';
 } else if (variant === 'outline-black') {
-  variantClass = 'bg-white text-black border border-black';
+  variantClass = 'bg-white text-black border border-black hover:!bg-black hover:text-white transition-all duration-200';
 }
 
 // Menentukan class untuk width
@@ -23,6 +23,7 @@ const widthClass = fullWidth ? 'w-full' : '';
 
 // Menggabungkan semua class
 const buttonClass = `
+  cursor-pointer
   rounded-full 
   py-2.5 px-4 text-16 
   md:py-3 px-5

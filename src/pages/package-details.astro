@@ -22,10 +22,10 @@ import Badge from "../components/Badge.astro";
 
     <div class="max-w-1130 mx-auto px-4 md:px-6 lg:px-8 xl:px-0">
       <div
-        class="flex flex-col gap-3 md:flex-row md:gap-4 lg:flex-row lg:gap-5 lg:h-[550px]"
+        class="flex flex-col gap-3 md:flex-row md:gap-4 lg:flex-row lg:gap-5 md:h-[550px]"
       >
         <div
-          class="w-full md:w-[70%] relative rounded-[20px] md:rounded-[25px] lg:rounded-[30px] overflow-hidden"
+          class="w-full h-[300px] md:h-auto md:w-[70%] relative rounded-[20px] md:rounded-[25px] lg:rounded-[30px] overflow-hidden"
         >
           <img
             id="main-image"
@@ -54,22 +54,22 @@ import Badge from "../components/Badge.astro";
         </div>
         <div class="w-full md:flex-1 md:h-full">
           <div
-            class="grid grid-cols-3 md:flex gap-3 md:flex-col md:gap-4 lg:gap-5 h-full"
+            class="grid grid-cols-3 md:grid-rows-3 md:grid-cols-none gap-3 md:gap-4 lg:gap-5 md:h-full"
           >
             <img
               src="/images/wedding-1.png"
               alt="Thumbnail 1"
-              class="js-thumb w-full md:h-full object-cover rounded-lg md:rounded-3xl cursor-pointer ring-2 ring-transparent"
+              class="js-thumb w-full h-[100px] md:h-full object-cover rounded-lg md:rounded-3xl cursor-pointer ring-2 ring-transparent"
             />
             <img
               src="/images/wedding-2.png"
               alt="Thumbnail 2"
-              class="js-thumb w-full md:h-full object-cover rounded-lg md:rounded-3xl cursor-pointer ring-2 ring-transparent"
+              class="js-thumb w-full h-[100px] md:h-full object-cover rounded-lg md:rounded-3xl cursor-pointer ring-2 ring-transparent"
             />
             <img
-              src="/images/wedding-1.png"
+              src="/images/wedding-3.png"
               alt="Thumbnail 3"
-              class="js-thumb w-full md:h-full object-cover rounded-lg md:rounded-3xl cursor-pointer ring-2 ring-transparent"
+              class="js-thumb w-full h-[100px] md:h-full object-cover rounded-lg md:rounded-3xl cursor-pointer ring-2 ring-transparent"
             />
           </div>
         </div>

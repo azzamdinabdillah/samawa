@@ -29,7 +29,7 @@ export const weddingPackages = [
     price: "Rp 198.493.000",
     location: "Luxemborgio City",
     vendor: "Tentram Organizer", 
-    image: "/images/wedding-1.png"
+    image: "/images/wedding-3.png"
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ export const weddingPackages = [
     price: "Rp 129.999",
     location: "Luxemborgio City",
     vendor: "Tentram Organizer",
-    image: "/images/wedding-2.png"
+    image: "/images/wedding-4.png"
   },
   {
     id: 5,
@@ -56,7 +56,7 @@ export const weddingPackages = [
     price: "Rp 350.000.000",
     location: "Bandung",
     vendor: "Royal Organizer",
-    image: "/images/wedding-1.png"
+    image: "/images/wedding-2.png"
   },
   {
     id: 7,
@@ -65,7 +65,7 @@ export const weddingPackages = [
     price: "Rp 120.000.000",
     location: "Bogor",
     vendor: "Green Venue",
-    image: "/images/wedding-1.png"
+    image: "/images/wedding-3.png"
   },
   {
     id: 8,
@@ -74,7 +74,7 @@ export const weddingPackages = [
     price: "Rp 500.000.000",
     location: "Surabaya",
     vendor: "Grand Event",
-    image: "/images/wedding-1.png"
+    image: "/images/wedding-4.png"
   },
 ];
 ---
@@ -94,6 +94,7 @@ export const weddingPackages = [
     <div class="flex gap-4 md:hidden pb-4">
       {weddingPackages.slice(0, 4).map((pkg) => (
         <div class="flex-shrink-0 w-[280px]">
+          <a href="/package-details">
           <CardPackage
             isPopular={pkg.isPopular}
             title={pkg.title}
@@ -102,6 +103,7 @@ export const weddingPackages = [
             vendor={pkg.vendor}
             image={pkg.image}
           />
+          </a>
         </div>
       ))}
     </div>
@@ -109,14 +111,16 @@ export const weddingPackages = [
     <!-- Tablet & Desktop: Grid -->
     <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[30px]">
       {weddingPackages.slice(0, 4).map((pkg) => (
-        <CardPackage
-          isPopular={pkg.isPopular}
-          title={pkg.title}
-          price={pkg.price}
-          location={pkg.location}
-          vendor={pkg.vendor}
-          image={pkg.image}
-        />
+        <a href="/package-details">
+          <CardPackage
+            isPopular={pkg.isPopular}
+            title={pkg.title}
+            price={pkg.price}
+            location={pkg.location}
+            vendor={pkg.vendor}
+            image={pkg.image}
+          />
+        </a>
       ))}
     </div>
   </div>
