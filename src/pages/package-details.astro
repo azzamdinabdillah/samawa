@@ -1,0 +1,146 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeaderLeftRight from "../components/PageHeaderLeftRight.astro";
+import Badge from "../components/Badge.astro";
+---
+
+<BaseLayout title="Package Details - Samawa Wedding">
+  <div class="flex flex-col gap-4 md:gap-6 lg:gap-7.5">
+    <PageHeaderLeftRight
+      title="Nikah Muda Abadi Pantai Bali Nusa"
+      ratingCount="18,493"
+      stars={5}
+      showRating={true}
+      customContainerClass="mb-8"
+      customTitleClass="text-[40px] leading-normal"
+      subTitleHtml=`<div class="flex gap-1.5 items-center">
+      <img src="/icons/location.svg" alt="">
+      <span class="font-bold text-[18px] text-black">Luxemborgio City</span>
+      </div>`
+      customSubTitleClass="text-[18px] font-bold"
+    />
+
+    <div class="max-w-1130 mx-auto px-4 md:px-6 lg:px-8 xl:px-0">
+      <div
+        class="flex flex-col gap-3 md:flex-row md:gap-4 lg:flex-row lg:gap-5 lg:h-[550px]"
+      >
+        <div
+          class="w-full md:w-[70%] relative rounded-[20px] md:rounded-[25px] lg:rounded-[30px] overflow-hidden"
+        >
+          <img
+            id="main-image"
+            src="/images/wedding-1.png"
+            alt="Main image"
+            class="w-full h-full object-cover transition-opacity duration-300 ease-in-out"
+          />
+          <div
+            class="absolute top-3 left-3 md:top-4 md:left-4 lg:top-5 lg:left-5"
+          >
+            <Badge
+              text="POPULAR"
+              icon="/icons/crown-white.svg"
+              variant="white"
+            />
+          </div>
+          <div
+            class="absolute bottom-3 left-3 md:bottom-4 md:left-4 lg:bottom-5 lg:left-5"
+          >
+            <Badge
+              text="BROCHURE.PDF"
+              icon="/icons/document-download.svg"
+              variant="white"
+            />
+          </div>
+        </div>
+        <div class="w-full md:flex-1 md:h-full">
+          <div
+            class="grid grid-cols-3 md:flex gap-3 md:flex-col md:gap-4 lg:gap-5 h-full"
+          >
+            <img
+              src="/images/wedding-1.png"
+              alt="Thumbnail 1"
+              class="js-thumb w-full md:h-full object-cover rounded-lg md:rounded-3xl cursor-pointer ring-2 ring-transparent"
+            />
+            <img
+              src="/images/wedding-2.png"
+              alt="Thumbnail 2"
+              class="js-thumb w-full md:h-full object-cover rounded-lg md:rounded-3xl cursor-pointer ring-2 ring-transparent"
+            />
+            <img
+              src="/images/wedding-1.png"
+              alt="Thumbnail 3"
+              class="js-thumb w-full md:h-full object-cover rounded-lg md:rounded-3xl cursor-pointer ring-2 ring-transparent"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /** @type {HTMLImageElement|null} */
+    const mainImage = document.getElementById("main-image");
+    /** @type {HTMLImageElement[]} */
+    const thumbs = Array.from(document.querySelectorAll(".js-thumb"));
+
+    function clearActiveThumb() {
+      thumbs.forEach((el) => {
+        el.classList.remove("ring-black/60");
+        el.classList.add("ring-transparent");
+      });
+    }
+
+    thumbs.forEach((thumb, index) => {
+      if (index === 0) {
+        clearActiveThumb();
+        thumb.classList.remove("ring-transparent");
+        thumb.classList.add("ring-black/60");
+      }
+      thumb.addEventListener("click", () => {
+        if (!mainImage) return;
+        const newSrc = thumb.getAttribute("src");
+        if (newSrc) {
+          // Avoid reloading the same image
+          const currentSrc = mainImage.getAttribute("src");
+          if (currentSrc === newSrc) {
+            clearActiveThumb();
+            thumb.classList.remove("ring-transparent");
+            thumb.classList.add("ring-black/60");
+            return;
+          }
+
+          // Preload image to prevent flash
+          const preload = new Image();
+          preload.src = newSrc;
+
+          const startTransition = () => {
+            // Fade out
+            mainImage.classList.add("opacity-0");
+
+            const onFadeOutEnd = () => {
+              mainImage.removeEventListener("transitionend", onFadeOutEnd);
+              // Swap src when faded out
+              mainImage.setAttribute("src", newSrc);
+              // Force reflow before fade in
+              void mainImage.offsetWidth;
+              // Fade in
+              mainImage.classList.remove("opacity-0");
+
+              clearActiveThumb();
+              thumb.classList.remove("ring-transparent");
+              thumb.classList.add("ring-black/60");
+            };
+
+            mainImage.addEventListener("transitionend", onFadeOutEnd);
+          };
+
+          if (preload.complete) {
+            startTransition();
+          } else {
+            preload.onload = startTransition;
+          }
+        }
+      });
+    });
+  </script>
+</BaseLayout>
