@@ -33,9 +33,7 @@ const {
       </div>
 
       <!-- Content -->
-      <div
-        class="flex flex-col gap-2 md:gap-2.5 items-start"
-      >
+      <div class="flex flex-col gap-2 md:gap-2.5 items-start">
         <h3 class="font-bold text-20 text-black leading-normal">
           {title}
         </h3>
@@ -59,12 +57,14 @@ const {
 
     <!-- Button -->
     <div class="w-full md:w-auto flex-shrink-0">
-      <Button
-        text={buttonText}
-        variant="outline-black"
-        size="small"
-        customClass="w-full md:w-auto"
-      />
+        <div data-open-modal="package-modal-details">
+            <Button
+              text={buttonText}
+              variant="outline-black"
+              size="small"
+              customClass="w-full md:w-auto"
+            />
+        </div>
     </div>
   </div>
 </div>

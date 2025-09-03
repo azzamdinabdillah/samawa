@@ -1,0 +1,84 @@
+---
+export interface Props {
+  id: string;
+  image: string;
+  imageAlt?: string;
+  header: string;
+  body: string;
+  isOpen: boolean;
+  onClose?: () => void;
+}
+
+const { id, image, imageAlt = "", header, body, isOpen, onClose } = Astro.props;
+---
+
+<div
+  id={id}
+  class={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-300`}
+  aria-modal="true"
+  role="dialog"
+  aria-labelledby={`${id}-header`}
+  aria-describedby={`${id}-body`}
+>
+  <!-- Backdrop -->
+  <div
+    class="absolute inset-0 bg-black/70 bg-opacity-50 transition-opacity duration-300"
+    data-close-modal
+  >
+  </div>
+
+  <!-- Modal Content -->
+  <div
+    class="relative bg-white rounded-[30px] mx-4 max-h-[90vh] overflow-y-auto transition-all duration-300 transform"
+  >
+    <!-- Mobile: Full width with padding -->
+    <div class="w-full p-4 md:p-6 lg:p-8">
+      <!-- Image Section -->
+      <div class="mb-5">
+        <div
+          class="w-full h-[200px] md:h-[250px] lg:h-[350px] rounded-[20px] overflow-hidden"
+        >
+          <img src={image} alt={imageAlt} class="w-full h-full object-cover" />
+        </div>
+      </div>
+
+      <!-- Header Section -->
+      <div class="mb-5">
+        <div class="mb-2.5">
+          <h2
+            id={`${id}-header`}
+            class="font-['Poppins'] font-bold text-lg md:text-xl lg:text-2xl text-black leading-tight"
+          >
+            <Fragment set:html={header} />
+          </h2>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="h-px bg-gray-200 mb-5"></div>
+
+      <!-- Body Section -->
+      <div class="mb-5">
+        <div
+          id={`${id}-body`}
+          class="text-sm md:text-base lg:text-lg text-black leading-relaxed"
+        >
+          <Fragment set:html={body} />
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="h-px bg-gray-200 mb-5"></div>
+
+      <!-- Footer Section -->
+      <div class="flex justify-center">
+        <button
+          class="px-5 py-2.5 rounded-[50px] border border-black text-sm md:text-base font-['Poppins'] font-semibold text-black hover:bg-black hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50"
+          data-close-modal
+        >
+          Close Details
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
