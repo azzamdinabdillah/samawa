@@ -21,11 +21,12 @@ import Badge from "../components/Badge.astro";
     />
 
     <div class="max-w-1130 mx-auto px-4 md:px-6 lg:px-8 xl:px-0">
+      <div class="flex flex-col gap-4 md:gap-5 lg:gap-7.5">
       <div
-        class="flex flex-col gap-3 md:flex-row md:gap-4 lg:flex-row lg:gap-5 md:h-[550px]"
+        class="flex flex-col gap-3 md:grid grid-cols-8 md:gap-4 lg:gap-5 md:h-[550px]"
       >
         <div
-          class="w-full h-[300px] md:h-auto md:w-[70%] relative rounded-[20px] md:rounded-[25px] lg:rounded-[30px] overflow-hidden"
+          class="w-full h-[300px] md:h-[550px] md:col-span-6 relative rounded-[20px] md:rounded-[25px] lg:rounded-[30px] overflow-hidden"
         >
           <img
             id="main-image"
@@ -52,9 +53,9 @@ import Badge from "../components/Badge.astro";
             />
           </div>
         </div>
-        <div class="w-full md:flex-1 md:h-full">
+        <div class="w-full md:col-span-2 md:h-[550px]">
           <div
-            class="grid grid-cols-3 md:grid-rows-3 md:grid-cols-none gap-3 md:gap-4 lg:gap-5 md:h-full"
+            class="grid grid-cols-3 md:grid-rows-3 md:grid-cols-none gap-3 md:gap-4 lg:gap-5 md:h-[550px]"
           >
             <img
               src="/images/wedding-1.png"
@@ -73,6 +74,10 @@ import Badge from "../components/Badge.astro";
             />
           </div>
         </div>
+      </div>
+
+      <div class="">
+
       </div>
     </div>
   </div>
