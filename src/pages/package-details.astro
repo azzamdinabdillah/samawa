@@ -266,8 +266,34 @@ import Modal from "../components/Modal.astro";
         id="package-modal"
         image="/images/wedding-1.png"
         imageAlt="Wedding Package"
-        header="<span>Pre Post Wedding Photography Album</span>"
-        body="<p>Our exclusive wedding package offers an unforgettable celebration...</p>"
+        header=`
+          <div class="flex flex-col gap-2 md:gap-2.5 items-start">
+            <h3 class="font-bold text-20 text-black leading-normal">
+              Pre Post Wedding Photography Album
+            </h3>
+            <div
+              class="flex flex-col md:flex-row gap-2 md:gap-2.5 items-center justify-start"
+            >
+              <div
+                class="font-semibold text-16 text-pink leading-normal"
+              >
+                <span>Rp 0</span>
+                <span class="font-normal text-pink">/package</span>
+              </div>
+              <div
+                class="font-normal text-16 text-black line-through leading-normal"
+              >
+                Rp 680.000.000
+              </div>
+            </div>
+          </div>
+        `
+        body=`
+        <div class="flex flex-col gap-[10px] text-16">
+          <p class="font-bold">About</p>
+          <p class="leading-[225%]">Our exclusive wedding package offers an unforgettable celebration tailored to your dreams. Enjoy a stunning venue, elegant decorations, and a delectable gourmet menu crafted by top chefs. Capture every precious moment with professional photography and videography. Dance the night away with a live band or DJ.</p>
+        </div>
+        `
         isOpen={true}
       />
     </div>

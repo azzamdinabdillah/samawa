@@ -1,4 +1,6 @@
 ---
+import Button from './Button.astro';
+
 export interface Props {
   id: string;
   image: string;
@@ -29,10 +31,10 @@ const { id, image, imageAlt = "", header, body, isOpen, onClose } = Astro.props;
 
   <!-- Modal Content -->
   <div
-    class="relative bg-white rounded-[30px] mx-4 max-h-[90vh] overflow-y-auto transition-all duration-300 transform"
+    class="relative max-w-[730px] bg-white rounded-[30px] mx-4 max-h-[90vh] overflow-y-auto transition-all duration-300 transform"
   >
     <!-- Mobile: Full width with padding -->
-    <div class="w-full p-4 md:p-6 lg:p-8">
+    <div class="w-full p-4 md:p-5">
       <!-- Image Section -->
       <div class="mb-5">
         <div
@@ -71,13 +73,10 @@ const { id, image, imageAlt = "", header, body, isOpen, onClose } = Astro.props;
       <div class="h-px bg-gray-200 mb-5"></div>
 
       <!-- Footer Section -->
-      <div class="flex justify-center">
-        <button
-          class="px-5 py-2.5 rounded-[50px] border border-black text-sm md:text-base font-['Poppins'] font-semibold text-black hover:bg-black hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50"
-          data-close-modal
-        >
-          Close Details
-        </button>
+      <div class="flex justify-end">
+        <div data-close-modal>
+          <Button text="Close Details" variant="outline-black" size="small" />
+        </div>
       </div>
     </div>
   </div>
