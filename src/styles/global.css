@@ -87,12 +87,12 @@
   animation-name: marquee;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  animation-duration: 1s; /* default untuk mobile */
+  animation-duration: 10s; /* default untuk mobile */
 }
 
 @media (min-width: 1024px) {
   .marquee-container {
-    animation-duration: 10s; /* override untuk layar besar */
+    animation-duration: 20s; /* override untuk layar besar */
   }
 }
 

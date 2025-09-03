@@ -20,7 +20,7 @@ import Button from "../components/Button.astro";
       </div>`
     />
 
-    <div class="max-w-1130 mx-auto px-4 md:px-6 lg:px-8 xl:px-0">
+    <div class="max-w-1130 mx-auto px-4 md:px-6 lg:px-8 xl:px-0 w-full">
       <div class="flex flex-col gap-17_5">
         <div
           class="flex flex-col gap-3 md:grid grid-cols-8 md:gap-4 lg:gap-5 md:h-[550px]"
@@ -80,14 +80,14 @@ import Button from "../components/Button.astro";
         <div
           class="flex flex-col lg:grid lg:grid-cols-[1fr_350px] lg:items-start gap-6 md:gap-8 lg:gap-8 xl:gap-12.5"
         >
-          <div class="flex flex-col gap-4 md:gap-5 lg:gap-7.5 order-first lg:order-last">
+          <div
+            class="flex flex-col gap-4 md:gap-5 lg:gap-7.5 order-first lg:order-last"
+          >
             <div class="flex flex-col gap-2.5 md:gap-3 lg:gap-4">
               <h2 class="font-bold text-20 text-black leading-normal">
                 It's a Good Package
               </h2>
-              <p
-                class="text-16 text-black leading-[200%] md:leading-[225%]"
-              >
+              <p class="text-16 text-black leading-[200%] md:leading-[225%]">
                 Our exclusive wedding package offers an unforgettable
                 celebration tailored to your dreams. Enjoy a stunning venue,
                 elegant decorations, and a delectable gourmet menu crafted by
@@ -137,21 +137,19 @@ import Button from "../components/Button.astro";
                   size="small"
                 />
               </div>
-              <div class="flex flex-col lg:flex-row gap-5 md:gap-6 lg:gap-7">
-                <TestimonialCard
-                  rating={5}
-                  testimonial="Keren banget Samawa, gue bisa nikah dengan pengalaman bagus dengan harga terjangkau! God."
-                  name="Andriana Putri"
-                  occupation="Programmer"
-                  image="/images/wedding-2.png"
-                />
-                <TestimonialCard
-                  rating={5}
-                  testimonial="Keren banget Samawa, gue bisa nikah dengan pengalaman bagus dengan harga terjangkau! God."
-                  name="Andriana Putri"
-                  occupation="Programmer"
-                  image="/images/wedding-3.png"
-                />
+              <div class="overflow-hidden w-full">
+                <div class="flex flex-row gap-3 md:gap-4 lg:gap-5 lg:grid grid-cols-2 overflow-x-auto no-scrollbar">
+                  {Array.from({ length: 4 }).map((_, idx) => (
+                    <TestimonialCard
+                      rating={5}
+                      testimonial="Keren banget Samawa, gue bisa nikah dengan pengalaman bagus dengan harga terjangkau! God."
+                      name="Andriana Putri"
+                      occupation="Programmer"
+                      image="/images/wedding-2.png"
+                      customClass="max-w-[300px] lg:max-w-full"
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -236,14 +234,10 @@ import Button from "../components/Button.astro";
                     />
                   </div>
                   <div>
-                    <h4
-                      class="font-bold text-16 text-black leading-normal"
-                    >
+                    <h4 class="font-bold text-16 text-black leading-normal">
                       Dua Putri
                     </h4>
-                    <p
-                      class="text-14 text-black leading-normal"
-                    >
+                    <p class="text-14 text-black leading-normal">
                       194 Packages
                     </p>
                   </div>

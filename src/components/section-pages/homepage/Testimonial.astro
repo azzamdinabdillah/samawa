@@ -70,6 +70,7 @@ const testimonials = [
               name={testimonial.name}
               occupation={testimonial.occupation}
               image={testimonial.image}
+              customClass="max-w-[280px] lg:max-w-[340px]"
             />
           ))}
         </div>
@@ -82,6 +83,7 @@ const testimonials = [
               name={testimonial.name}
               occupation={testimonial.occupation}
               image={testimonial.image}
+              customClass="max-w-[280px] lg:max-w-[340px]"
             />
           ))}
         </div>
@@ -89,50 +91,4 @@ const testimonials = [
     </div>
   </div>
 </section>
-
-<style>
-  .marquee-container {
-    display: flex;
-    width: 200%;
-    animation: marquee 40s linear infinite;
-  }
-
-  .marquee-content {
-    display: flex;
-    gap: 16px;
-    flex: 0 0 50%;
-  }
-
-  @media (min-width: 768px) {
-    .marquee-container {
-      animation: marquee 35s linear infinite;
-    }
-    .marquee-content {
-      gap: 24px;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .marquee-container {
-      animation: marquee 30s linear infinite;
-    }
-    .marquee-content {
-      gap: 40px;
-    }
-  }
-
-  @keyframes marquee {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-
-  /* Pause animation on hover */
-  .marquee-container:hover {
-    animation-play-state: paused;
-  }
-</style>
 
