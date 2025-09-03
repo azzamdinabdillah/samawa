@@ -81,6 +81,10 @@
   @apply flex flex-col gap-4 md:gap-5 lg:gap-7.5;
 }
 
+.gap-20{
+  @apply gap-2 md:gap-4 lg:gap-5;
+}
+
 .marquee-container {
   display: flex;
   width: max-content;
