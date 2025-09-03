@@ -2,6 +2,9 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHeaderLeftRight from "../components/PageHeaderLeftRight.astro";
 import Badge from "../components/Badge.astro";
+import BonusCard from "../components/BonusCard.astro";
+import TestimonialCard from "../components/TestimonialCard.astro";
+import Button from "../components/Button.astro";
 ---
 
 <BaseLayout title="Package Details - Samawa Wedding">
@@ -21,131 +24,316 @@ import Badge from "../components/Badge.astro";
     />
 
     <div class="max-w-1130 mx-auto px-4 md:px-6 lg:px-8 xl:px-0">
-      <div class="flex flex-col gap-4 md:gap-5 lg:gap-7.5">
-      <div
-        class="flex flex-col gap-3 md:grid grid-cols-8 md:gap-4 lg:gap-5 md:h-[550px]"
-      >
+      <div class="flex flex-col gap-17_5">
         <div
-          class="w-full h-[300px] md:h-[550px] md:col-span-6 relative rounded-[20px] md:rounded-[25px] lg:rounded-[30px] overflow-hidden"
+          class="flex flex-col gap-3 md:grid grid-cols-8 md:gap-4 lg:gap-5 md:h-[550px]"
         >
-          <img
-            id="main-image"
-            src="/images/wedding-1.png"
-            alt="Main image"
-            class="w-full h-full object-cover transition-opacity duration-300 ease-in-out"
-          />
           <div
-            class="absolute top-3 left-3 md:top-4 md:left-4 lg:top-5 lg:left-5"
-          >
-            <Badge
-              text="POPULAR"
-              icon="/icons/crown-white.svg"
-              variant="white"
-            />
-          </div>
-          <div
-            class="absolute bottom-3 left-3 md:bottom-4 md:left-4 lg:bottom-5 lg:left-5"
-          >
-            <Badge
-              text="BROCHURE.PDF"
-              icon="/icons/document-download.svg"
-              variant="white"
-            />
-          </div>
-        </div>
-        <div class="w-full md:col-span-2 md:h-[550px]">
-          <div
-            class="grid grid-cols-3 md:grid-rows-3 md:grid-cols-none gap-3 md:gap-4 lg:gap-5 md:h-[550px]"
+            class="w-full h-[300px] md:h-[550px] md:col-span-6 relative rounded-[20px] md:rounded-[25px] lg:rounded-[30px] overflow-hidden"
           >
             <img
+              id="main-image"
               src="/images/wedding-1.png"
-              alt="Thumbnail 1"
-              class="js-thumb w-full h-[100px] md:h-full object-cover rounded-lg md:rounded-3xl cursor-pointer ring-2 ring-transparent"
+              alt="Main image"
+              class="w-full h-full object-cover transition-opacity duration-300 ease-in-out"
             />
-            <img
-              src="/images/wedding-2.png"
-              alt="Thumbnail 2"
-              class="js-thumb w-full h-[100px] md:h-full object-cover rounded-lg md:rounded-3xl cursor-pointer ring-2 ring-transparent"
-            />
-            <img
-              src="/images/wedding-3.png"
-              alt="Thumbnail 3"
-              class="js-thumb w-full h-[100px] md:h-full object-cover rounded-lg md:rounded-3xl cursor-pointer ring-2 ring-transparent"
+            <div
+              class="absolute top-3 left-3 md:top-4 md:left-4 lg:top-5 lg:left-5"
+            >
+              <Badge
+                text="POPULAR"
+                icon="/icons/crown-white.svg"
+                variant="white"
+              />
+            </div>
+            <div
+              class="absolute bottom-3 left-3 md:bottom-4 md:left-4 lg:bottom-5 lg:left-5"
+            >
+              <Badge
+                text="BROCHURE.PDF"
+                icon="/icons/document-download.svg"
+                variant="white"
+              />
+            </div>
+          </div>
+          <div class="w-full md:col-span-2 md:h-[550px]">
+            <div
+              class="grid grid-cols-3 md:grid-rows-3 md:grid-cols-none gap-3 md:gap-4 lg:gap-5 md:h-[550px]"
+            >
+              <img
+                src="/images/wedding-1.png"
+                alt="Thumbnail 1"
+                class="js-thumb w-full h-[100px] md:h-full object-cover rounded-lg md:rounded-3xl cursor-pointer ring-2 ring-transparent"
+              />
+              <img
+                src="/images/wedding-2.png"
+                alt="Thumbnail 2"
+                class="js-thumb w-full h-[100px] md:h-full object-cover rounded-lg md:rounded-3xl cursor-pointer ring-2 ring-transparent"
+              />
+              <img
+                src="/images/wedding-3.png"
+                alt="Thumbnail 3"
+                class="js-thumb w-full h-[100px] md:h-full object-cover rounded-lg md:rounded-3xl cursor-pointer ring-2 ring-transparent"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Package Description Section -->
+        <div
+          class="flex flex-col lg:grid lg:grid-cols-[1fr_350px] lg:items-start gap-6 md:gap-8 lg:gap-8 xl:gap-12.5"
+        >
+          <div class="flex flex-col gap-4 md:gap-5 lg:gap-7.5">
+            <div class="flex flex-col gap-2.5 md:gap-3 lg:gap-4">
+              <h2 class="font-bold text-20 text-black leading-normal">
+                It's a Good Package
+              </h2>
+              <p
+                class="text-16 text-black leading-[24px] md:leading-[30px] lg:leading-[36px]"
+              >
+                Our exclusive wedding package offers an unforgettable
+                celebration tailored to your dreams. Enjoy a stunning venue,
+                elegant decorations, and a delectable gourmet menu crafted by
+                top chefs. Capture every precious moment with professional
+                photography and videography. Dance the night away with a live
+                band or DJ. Our dedicated event planner ensures every detail is
+                perfect, from personalized invitations to a luxurious bridal
+                suite. Experience a magical day filled with love and joy,
+                creating memories.
+              </p>
+            </div>
+
+            <!-- Bonus Included Section -->
+            <div class="flex flex-col gap-4 md:gap-5 lg:gap-6">
+              <h2 class="font-bold text-20 text-black leading-normal">
+                Bonus Included
+              </h2>
+              <div class="flex flex-col gap-4 md:gap-5 lg:gap-6">
+                <BonusCard
+                  title="Pre Post Wedding Photography Album"
+                  originalPrice="Rp 680.000.000"
+                  discountedPrice="Rp 0"
+                  image="/images/wedding-4.png"
+                  buttonText="View Details"
+                />
+                <BonusCard
+                  title="Honeymoon Villa"
+                  originalPrice="Rp 680.000.000"
+                  discountedPrice="Rp 0"
+                  image="/images/wedding-3.png"
+                  buttonText="View Details"
+                />
+              </div>
+            </div>
+
+            <!-- Wedding Testimonials Section -->
+            <div class="flex flex-col gap-5 md:gap-6 lg:gap-7">
+              <div
+                class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-5"
+              >
+                <h2 class="font-bold text-20 text-black leading-normal">
+                  Wedding Testimonials
+                </h2>
+                <Button
+                  text="Explore All"
+                  variant="outline-black"
+                  size="small"
+                />
+              </div>
+              <div class="flex flex-col lg:flex-row gap-5 md:gap-6 lg:gap-7">
+                <TestimonialCard
+                  rating={5}
+                  testimonial="Keren banget Samawa, gue bisa nikah dengan pengalaman bagus dengan harga terjangkau! God."
+                  name="Andriana Putri"
+                  occupation="Programmer"
+                  image="/images/wedding-2.png"
+                />
+                <TestimonialCard
+                  rating={5}
+                  testimonial="Keren banget Samawa, gue bisa nikah dengan pengalaman bagus dengan harga terjangkau! God."
+                  name="Andriana Putri"
+                  occupation="Programmer"
+                  image="/images/wedding-3.png"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Sidebar - Package Pricing & Details -->
+          <div
+            class="bg-white border border-[#e4e6eb] rounded-[20px] md:rounded-[25px] lg:rounded-[30px] p-4 md:p-5 lg:p-[30px] w-full lg:w-[350px] lg:flex-shrink-0 order-first lg:order-last"
+          >
+            <!-- Package Price -->
+            <div
+              class="font-bold text-[30px] text-pink leading-normal mb-3 md:mb-4 lg:mb-5"
+            >
+              Rp 198.493.000
+            </div>
+
+            <!-- Divider Line -->
+            <div class="h-px bg-[#e4e6eb] w-full mb-3 md:mb-4 lg:mb-5"></div>
+
+            <!-- Package Features -->
+            <div
+              class="flex flex-col gap-2.5 md:gap-3 lg:gap-4 mb-3 md:mb-4 lg:mb-5"
+            >
+              <div class="flex gap-3 items-center">
+                <div class="w-5 h-5 md:w-6 md:h-6 flex-shrink-0 mt-0.5">
+                  <img
+                    src="/icons/card-tick.svg"
+                    alt="Check"
+                    class="w-full h-full"
+                  />
+                </div>
+                <p class="text-16 text-black leading-[24px] md:leading-[28px]">
+                  Lorem ipsum dolor si amet nikah berkah dunia kita
+                </p>
+              </div>
+              <div class="flex gap-3 items-center">
+                <div class="w-5 h-5 md:w-6 md:h-6 flex-shrink-0 mt-0.5">
+                  <img
+                    src="/icons/card-tick.svg"
+                    alt="Check"
+                    class="w-full h-full"
+                  />
+                </div>
+                <p class="text-16 text-black leading-[24px] md:leading-[28px]">
+                  Lorem ipsum dolor si amet nikah berkah dunia kita
+                </p>
+              </div>
+              <div class="flex gap-3 items-center">
+                <div class="w-5 h-5 md:w-6 md:h-6 flex-shrink-0 mt-0.5">
+                  <img
+                    src="/icons/card-tick.svg"
+                    alt="Check"
+                    class="w-full h-full"
+                  />
+                </div>
+                <p class="text-16 text-black leading-[24px] md:leading-[28px]">
+                  Lorem ipsum dolor si amet nikah berkah dunia kita
+                </p>
+              </div>
+            </div>
+
+            <!-- Divider Line -->
+            <div class="h-px bg-[#e4e6eb] w-full mb-4 md:mb-5"></div>
+
+            <!-- Wedding Organizer -->
+            <div class="mb-3 md:mb-4 lg:mb-5">
+              <h3
+                class="font-bold text-16 text-black leading-normal mb-2.5 md:mb-3"
+              >
+                Wedding Organizer
+              </h3>
+              <div
+                class="border border-[#e4e6eb] rounded-[12px] md:rounded-[16px] p-2.5 md:p-3 lg:p-[12px]"
+              >
+                <div class="flex gap-2.5 md:gap-3 items-center">
+                  <div
+                    class="w-[35px] h-[35px] md:w-[40px] md:h-[40px] lg:w-[50px] lg:h-[50px] rounded-full overflow-hidden flex-shrink-0"
+                  >
+                    <img
+                      src="/images/wedding-1.png"
+                      alt="Dua Putri"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h4
+                      class="font-bold text-16 text-black leading-normal"
+                    >
+                      Dua Putri
+                    </h4>
+                    <p
+                      class="text-14 text-black leading-normal"
+                    >
+                      194 Packages
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Divider Line -->
+            <div class="h-px bg-[#e4e6eb] w-full mb-3 md:mb-4 lg:mb-5"></div>
+
+            <!-- Choose Package Button -->
+            <Button
+              text="Choose This Package"
+              variant="pink"
+              size="normal"
+              customClass="w-full"
             />
           </div>
         </div>
-      </div>
-
-      <div class="">
-
       </div>
     </div>
-  </div>
 
-  <script>
-    /** @type {HTMLImageElement|null} */
-    const mainImage = document.getElementById("main-image");
-    /** @type {HTMLImageElement[]} */
-    const thumbs = Array.from(document.querySelectorAll(".js-thumb"));
+    <script>
+      /** @type {HTMLImageElement|null} */
+      const mainImage = document.getElementById("main-image");
+      /** @type {HTMLImageElement[]} */
+      const thumbs = Array.from(document.querySelectorAll(".js-thumb"));
 
-    function clearActiveThumb() {
-      thumbs.forEach((el) => {
-        el.classList.remove("ring-black/60");
-        el.classList.add("ring-transparent");
-      });
-    }
-
-    thumbs.forEach((thumb, index) => {
-      if (index === 0) {
-        clearActiveThumb();
-        thumb.classList.remove("ring-transparent");
-        thumb.classList.add("ring-black/60");
+      function clearActiveThumb() {
+        thumbs.forEach((el) => {
+          el.classList.remove("ring-black/60");
+          el.classList.add("ring-transparent");
+        });
       }
-      thumb.addEventListener("click", () => {
-        if (!mainImage) return;
-        const newSrc = thumb.getAttribute("src");
-        if (newSrc) {
-          // Avoid reloading the same image
-          const currentSrc = mainImage.getAttribute("src");
-          if (currentSrc === newSrc) {
-            clearActiveThumb();
-            thumb.classList.remove("ring-transparent");
-            thumb.classList.add("ring-black/60");
-            return;
-          }
 
-          // Preload image to prevent flash
-          const preload = new Image();
-          preload.src = newSrc;
-
-          const startTransition = () => {
-            // Fade out
-            mainImage.classList.add("opacity-0");
-
-            const onFadeOutEnd = () => {
-              mainImage.removeEventListener("transitionend", onFadeOutEnd);
-              // Swap src when faded out
-              mainImage.setAttribute("src", newSrc);
-              // Force reflow before fade in
-              void mainImage.offsetWidth;
-              // Fade in
-              mainImage.classList.remove("opacity-0");
-
+      thumbs.forEach((thumb, index) => {
+        if (index === 0) {
+          clearActiveThumb();
+          thumb.classList.remove("ring-transparent");
+          thumb.classList.add("ring-black/60");
+        }
+        thumb.addEventListener("click", () => {
+          if (!mainImage) return;
+          const newSrc = thumb.getAttribute("src");
+          if (newSrc) {
+            // Avoid reloading the same image
+            const currentSrc = mainImage.getAttribute("src");
+            if (currentSrc === newSrc) {
               clearActiveThumb();
               thumb.classList.remove("ring-transparent");
               thumb.classList.add("ring-black/60");
+              return;
+            }
+
+            // Preload image to prevent flash
+            const preload = new Image();
+            preload.src = newSrc;
+
+            const startTransition = () => {
+              // Fade out
+              mainImage.classList.add("opacity-0");
+
+              const onFadeOutEnd = () => {
+                mainImage.removeEventListener("transitionend", onFadeOutEnd);
+                // Swap src when faded out
+                mainImage.setAttribute("src", newSrc);
+                // Force reflow before fade in
+                void mainImage.offsetWidth;
+                // Fade in
+                mainImage.classList.remove("opacity-0");
+
+                clearActiveThumb();
+                thumb.classList.remove("ring-transparent");
+                thumb.classList.add("ring-black/60");
+              };
+
+              mainImage.addEventListener("transitionend", onFadeOutEnd);
             };
 
-            mainImage.addEventListener("transitionend", onFadeOutEnd);
-          };
-
-          if (preload.complete) {
-            startTransition();
-          } else {
-            preload.onload = startTransition;
+            if (preload.complete) {
+              startTransition();
+            } else {
+              preload.onload = startTransition;
+            }
           }
-        }
+        });
       });
-    });
-  </script>
+    </script>
+  </div>
 </BaseLayout>
