@@ -89,6 +89,10 @@
   @apply gap-3.5 md:gap-5 lg:gap-7.5;
 }
 
+.p-30{
+  @apply p-3.5 md:p-5 lg:p-7.5;
+}
+
 .marquee-container {
   display: flex;
   width: max-content;

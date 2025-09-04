@@ -2,6 +2,8 @@
 import Input from "../../components/Input.astro";
 import DividerLine from "../../components/DividerLine.astro";
 import Accordion from "../../components/Accordion.astro";
+import PaymentMethodSelector from "../../components/PaymentMethodSelector.astro";
+import TestimonialCard from "../../components/TestimonialCard.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
@@ -11,89 +13,298 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   >
     <h2 class="text-30 font-bold">Checkout Package</h2>
 
-    <Accordion title="Customer Information" defaultOpen={true}>
-      <DividerLine />
-      <div class="flex flex-col gap-30 items-start justify-start w-full">
-        <div class="flex flex-col gap-30 md:grid grid-cols-2 w-full">
-          <div class="w-full md:flex-1">
-            <Input
-              label="Full Name"
-              icon="/public/icons/profile.svg"
-              placeholder="Write your complete name"
-              name="fullName"
-              id="fullName"
-              required={true}
-              fullWidth={true}
-            />
-          </div>
-          <div class="w-full md:flex-1">
-            <Input
-              label="Email Address"
-              icon="/public/icons/sms.svg"
-              placeholder="Write your email address"
-              name="email"
-              id="email"
-              type="email"
-              value="anggarisky|"
-              required={true}
-              fullWidth={true}
-              customClass="border-2 border-[#ff48b6]"
-            />
-          </div>
+    <div class="flex flex-col gap-30 md:grid grid-cols-[1fr_350px] items-start">
+      <div class="flex flex-col gap-20 w-full">
+        <Accordion title="Customer Information" defaultOpen={true}>
+          <DividerLine />
+          <div class="flex flex-col gap-30 items-start justify-start w-full">
+            <div class="flex flex-col gap-30 md:grid grid-cols-2 w-full">
+              <div class="w-full md:flex-1">
+                <Input
+                  label="Full Name"
+                  icon="/public/icons/profile.svg"
+                  placeholder="Write your complete name"
+                  name="fullName"
+                  id="fullName"
+                  required={true}
+                  fullWidth={true}
+                />
+              </div>
+              <div class="w-full md:flex-1">
+                <Input
+                  label="Email Address"
+                  icon="/public/icons/sms.svg"
+                  placeholder="Write your email address"
+                  name="email"
+                  id="email"
+                  type="email"
+                  value="anggarisky|"
+                  required={true}
+                  fullWidth={true}
+                  customClass="border-2 border-[#ff48b6]"
+                />
+              </div>
 
-          <div class="w-full md:flex-1">
-            <Input
-              label="Phone Number"
-              icon="/public/icons/call.svg"
-              placeholder="Let us know your number"
-              name="phone"
-              id="phone"
-              type="tel"
-              required={true}
-              fullWidth={true}
-            />
+              <div class="w-full md:flex-1">
+                <Input
+                  label="Phone Number"
+                  icon="/public/icons/call.svg"
+                  placeholder="Let us know your number"
+                  name="phone"
+                  id="phone"
+                  type="tel"
+                  required={true}
+                  fullWidth={true}
+                />
+              </div>
+              <div class="w-full md:flex-1">
+                <Input
+                  label="Started At"
+                  icon="/public/icons/calendar.svg"
+                  placeholder="Choose your date"
+                  name="startedAt"
+                  id="startedAt"
+                  type="date"
+                  required={true}
+                  fullWidth={true}
+                />
+              </div>
+            </div>
+
+            <!-- Divider -->
+            <DividerLine />
+
+            <!-- Privacy Notice -->
+            <div class="flex gap-2.5 items-center justify-start w-full">
+              <div class="relative shrink-0 size-8">
+                <img
+                  src="/public/icons/security-user.svg"
+                  alt="security"
+                  class="block max-w-none size-full"
+                />
+              </div>
+              <div class="font-semibold leading-normal text-16 text-black">
+                <p>Samawa is protecting your privacy better</p>
+              </div>
+            </div>
           </div>
-          <div class="w-full md:flex-1">
-            <Input
-              label="Started At"
-              icon="/public/icons/calendar.svg"
-              placeholder="Choose your date"
-              name="startedAt"
-              id="startedAt"
-              type="date"
-              required={true}
-              fullWidth={true}
-            />
+        </Accordion>
+
+        <!-- Example: Second Accordion (Open by default) -->
+        <Accordion title="Payment Details" defaultOpen={true}>
+          <div class="flex flex-col gap-30 items-start justify-start w-full">
+            <DividerLine />
+            <!-- Payment Summary -->
+            <div class="flex flex-col gap-5 items-start justify-start w-full">
+              <!-- Package Quantity -->
+              <div class="flex gap-30 items-center justify-start w-full">
+                <div
+                  class="flex gap-2.5 items-center justify-start min-w-0 flex-1"
+                >
+                  <div class="relative shrink-0 size-6">
+                    <img
+                      src="/public/icons/document-download.svg"
+                      alt="receipt"
+                      class="block max-w-none size-full"
+                    />
+                  </div>
+                  <div class="font-normal leading-normal text-16 text-black">
+                    <p>Package Quantity</p>
+                  </div>
+                </div>
+                <div class="font-semibold leading-normal text-16 text-black">
+                  <p>1 Wedding Package</p>
+                </div>
+              </div>
+
+              <!-- Package Price -->
+              <div class="flex gap-30 items-center justify-start w-full">
+                <div
+                  class="flex gap-2.5 items-center justify-start min-w-0 flex-1"
+                >
+                  <div class="relative shrink-0 size-6">
+                    <img
+                      src="/public/icons/card-tick.svg"
+                      alt="dollar"
+                      class="block max-w-none size-full"
+                    />
+                  </div>
+                  <div class="font-normal leading-normal text-16 text-black">
+                    <p>Package Price (1x)</p>
+                  </div>
+                </div>
+                <div class="font-semibold leading-normal text-16 text-black">
+                  <p>Rp 560.300.493</p>
+                </div>
+              </div>
+
+              <!-- Country Tax -->
+              <div class="flex gap-30 items-center justify-start w-full">
+                <div
+                  class="flex gap-2.5 items-center justify-start min-w-0 flex-1"
+                >
+                  <div class="relative shrink-0 size-6">
+                    <img
+                      src="/public/icons/note-favorite.svg"
+                      alt="percentage"
+                      class="block max-w-none size-full"
+                    />
+                  </div>
+                  <div class="font-normal leading-normal text-16 text-black">
+                    <p>Country Tax 11%</p>
+                  </div>
+                </div>
+                <div class="font-semibold leading-normal text-16 text-black">
+                  <p>Rp 56.399.403</p>
+                </div>
+              </div>
+
+              <!-- Consultation & Insurance -->
+              <div class="flex gap-30 items-center justify-start w-full">
+                <div
+                  class="flex gap-2.5 items-center justify-start min-w-0 flex-1"
+                >
+                  <div class="relative shrink-0 size-6">
+                    <img
+                      src="/public/icons/sms.svg"
+                      alt="message"
+                      class="block max-w-none size-full"
+                    />
+                  </div>
+                  <div class="font-normal leading-normal text-16 text-black">
+                    <p>Consultation & Insurance</p>
+                  </div>
+                </div>
+                <div class="font-semibold leading-normal text-16 text-black">
+                  <p>Rp 0 (Free)</p>
+                </div>
+              </div>
+
+              <!-- Grand Total -->
+              <div class="flex gap-30 items-center justify-start w-full">
+                <div
+                  class="flex gap-2.5 items-center justify-start min-w-0 flex-1"
+                >
+                  <div class="relative shrink-0 size-6">
+                    <img
+                      src="/public/icons/security-user.svg"
+                      alt="security"
+                      class="block max-w-none size-full"
+                    />
+                  </div>
+                  <div class="font-normal leading-normal text-16 text-black">
+                    <p>Grand Total Amount</p>
+                  </div>
+                </div>
+                <div
+                  class="font-bold leading-normal text-[18px] md:text-[20px] lg:text-[22px] text-[#ff48b6]"
+                >
+                  <p>Rp 616.699.896</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Accordion>
+
+        <Accordion title="Proceed Payment to" defaultOpen={true}>
+          <DividerLine />
+          <PaymentMethodSelector />
+        </Accordion>
+      </div>
+
+      <div
+        class="bg-white flex flex-col gap-5 items-start justify-start p-30 relative rounded-3xl lg:rounded-[30px]"
+      >
+        <!-- Package Title -->
+        <div
+          class="font-bold leading-[0] min-w-full not-italic relative shrink-0 text-20 text-black"
+        >
+          <p class="leading-[normal]">
+            Nikah Muda Abadi Pantai Bali Indah Sejahtera
+          </p>
+        </div>
+
+        <img
+          src="/public/images/wedding-1.png"
+          alt="Wedding Package"
+          class="w-full object-cover h-[170px] rounded-2xl md:rounded-3xl"
+        />
+
+        <!-- Package Price -->
+        <div
+          class="font-bold leading-[0] min-w-full not-italic relative shrink-0 text-[#ff48b6] text-20"
+        >
+          <p class="leading-[normal] ">Rp 198.493.000</p>
+        </div>
+
+        <!-- Divider Line -->
+        <div class="h-0 relative shrink-0 w-full">
+          <div class="absolute bottom-0 left-0 right-0 top-[-1px]">
+            <div class="w-full h-px bg-[#e4e6eb]"></div>
           </div>
         </div>
 
-        <!-- Divider -->
+        <!-- Happy Story Section -->
+        <div
+          class="font-bold leading-[0] min-w-full not-italic relative shrink-0 text-16 text-black"
+        >
+          <p class="leading-[normal]">Happy Story</p>
+        </div>
+
+        <TestimonialCard
+          rating={5}
+          testimonial="Keren banget Samawa, gue bisa nikah dengan pengalaman bagus dengan harga terjangkau! God."
+          name="Andriana Putri"
+          occupation="Programmer"
+          image="/public/images/wedding-2.png"
+          customClass="!p-3 md:!p-4 lg:!p-5"
+        />
+
+        <!-- Divider Line -->
         <DividerLine />
 
-        <!-- Privacy Notice -->
-        <div class="flex gap-2.5 items-center justify-start w-full">
-          <div class="relative shrink-0 size-8">
-            <img
-              src="/public/icons/security-user.svg"
-              alt="security"
-              class="block max-w-none size-full"
-            />
+        <!-- Wedding Organizer Section -->
+        <div
+          class="content-stretch flex flex-col gap-3 items-start justify-start relative shrink-0 w-full"
+        >
+          <div
+            class="font-bold leading-[0] not-italic relative shrink-0 text-16 text-black w-full"
+          >
+            <p class="leading-[normal]">Wedding Organizer</p>
           </div>
-          <div class="font-semibold leading-normal text-16 text-black">
-            <p>Samawa is protecting your privacy better</p>
+          <div
+            class="box-border content-stretch flex flex-col gap-2.5 items-start justify-start p-[12px] relative rounded-[16px] shrink-0 w-full border border-[#e4e6eb]"
+          >
+            <div
+              class="content-stretch flex gap-3 items-center justify-start relative shrink-0 w-full"
+            >
+              <div
+                class="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0"
+              >
+                <div
+                  class="[grid-area:1_/_1] bg-center bg-cover bg-no-repeat ml-0 mt-0 rounded-[50px] size-[50px] overflow-hidden"
+                >
+                  <img
+                    src="/public/images/wedding-3.png"
+                    alt="Wedding Organizer"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div
+                class="content-stretch flex flex-col gap-0.5 items-start justify-start leading-[0] not-italic relative shrink-0 text-black"
+              >
+                <div class="font-bold relative shrink-0 text-16 w-full">
+                  <p class="leading-[normal]">Dua Putri</p>
+                </div>
+                <div class="font-normal relative shrink-0 text-[14px] w-full">
+                  <p class="leading-[normal]">194 Packages</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </Accordion>
-
-    <!-- Example: Second Accordion (Open by default) -->
-    <Accordion title="Payment Information" defaultOpen={true}>
-      <div class="flex flex-col gap-30 items-start justify-start w-full">
-        <DividerLine />
-        <div class="text-center w-full">
-          <p class="text-gray-600">Payment form will be here...</p>
-        </div>
-      </div>
-    </Accordion>
+    </div>
   </div>
 </BaseLayout>

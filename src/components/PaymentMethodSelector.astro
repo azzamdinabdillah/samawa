@@ -1,0 +1,241 @@
+---
+import Button from "./Button.astro";
+import DividerLine from "./DividerLine.astro";
+import Input from "./Input.astro";
+
+// PaymentMethodSelector component for checkout page with tab functionality
+---
+
+<div
+  class="payment-method-selector flex flex-col gap-30 items-start justify-start w-full"
+>
+  <!-- Tab Headers -->
+  <div class="flex flex-col gap-5 md:flex-row w-full">
+    <!-- Bank Transfer Tab -->
+    <div
+      class="payment-tab basis-0 flex gap-2.5 grow items-center justify-start min-h-px min-w-px px-5 py-3.5 relative rounded-[50px] shrink-0 cursor-pointer border-2 border-[#ff48b6] bg-white transition-all duration-200 ease-in-out hover:-translate-y-0.5"
+      data-tab="bank-transfer"
+    >
+      <div class="relative shrink-0 size-6">
+        <img
+          src="/public/icons/wallet-check.svg"
+          alt="Bank Transfer"
+          class="block max-w-none size-full"
+        />
+      </div>
+      <div
+        class="font-semibold leading-normal relative shrink-0 text-16 text-black whitespace-nowrap"
+      >
+        <p>Bank Transfer</p>
+      </div>
+    </div>
+
+    <!-- Credit Card Tab -->
+    <div
+      class="payment-tab basis-0 flex gap-2.5 grow items-center justify-start min-h-px min-w-px px-5 py-3.5 relative rounded-[50px] shrink-0 cursor-pointer border border-[#e4e6eb] bg-white transition-all duration-200 ease-in-out hover:-translate-y-0.5"
+      data-tab="credit-card"
+    >
+      <div class="relative shrink-0 size-6">
+        <img
+          src="/public/icons/card.svg"
+          alt="Credit Card"
+          class="block max-w-none size-full"
+        />
+      </div>
+      <div
+        class="font-semibold leading-normal relative shrink-0 text-16 text-black whitespace-nowrap"
+      >
+        <p>Credit Card</p>
+      </div>
+    </div>
+
+    <!-- Redeem Points Tab -->
+    <div
+      class="payment-tab basis-0 flex gap-2.5 grow items-center justify-start min-h-px min-w-px px-5 py-3.5 relative rounded-[50px] shrink-0 cursor-pointer border border-[#e4e6eb] bg-white transition-all duration-200 ease-in-out hover:-translate-y-0.5"
+      data-tab="redeem-points"
+    >
+      <div class="relative shrink-0 size-6">
+        <img
+          src="/public/icons/ticket-star.svg"
+          alt="Redeem Points"
+          class="block max-w-none size-full"
+        />
+      </div>
+      <div
+        class="font-semibold leading-normal relative shrink-0 text-16 text-black whitespace-nowrap"
+      >
+        <p>Redeem Points</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab Content -->
+  <div class="tab-content w-full">
+    <!-- Bank Transfer Content -->
+    <div
+      id="bank-transfer-content"
+      class="tab-panel active transition-opacity duration-300 ease-in-out flex flex-col gap-30"
+    >
+      <div
+        class="flex flex-col md:grid grid-cols-2 gap-30 items-start justify-start w-full"
+      >
+        <!-- BCA Bank Option -->
+        <div class="flex gap-3 items-center justify-start w-full">
+          <div
+            class="relative shrink-0 w-[70px] h-[50px] rounded-[12px] flex items-center justify-center"
+          >
+            <img
+              src="/public/icons/bca-logo.svg"
+              alt="BCA Bank"
+              class="block max-w-none w-full h-[22px]"
+            />
+          </div>
+          <div class="flex flex-col gap-0.5 items-start justify-center flex-1">
+            <div class="flex gap-1 items-center justify-start">
+              <div class="font-semibold leading-normal text-16 text-black">
+                <p>Samawa Indonesia</p>
+              </div>
+              <div class="relative shrink-0 size-[18px]">
+                <img
+                  src="/public/icons/verify.svg"
+                  alt="Verified"
+                  class="block max-w-none size-full"
+                />
+              </div>
+            </div>
+            <div class="font-normal leading-normal text-16 text-black">
+              <p>8008129839</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mandiri Bank Option -->
+        <div class="flex gap-3 items-center justify-start w-full">
+          <div
+            class="relative shrink-0 w-[70px] h-[50px] rounded-[12px] flex items-center justify-center"
+          >
+            <img
+              src="/public/icons/mandiri-logo.svg"
+              alt="Mandiri Bank"
+              class="block max-w-none w-full h-[20px]"
+            />
+          </div>
+          <div class="flex flex-col gap-0.5 items-start justify-center flex-1">
+            <div class="flex gap-1 items-center justify-start">
+              <div class="font-semibold leading-normal text-16 text-black">
+                <p>Samawa Indonesia</p>
+              </div>
+              <div class="relative shrink-0 size-[18px]">
+                <img
+                  src="/public/icons/verify.svg"
+                  alt="Verified"
+                  class="block max-w-none size-full"
+                />
+              </div>
+            </div>
+            <div class="font-normal leading-normal text-16 text-black">
+              <p>12379834983281</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <DividerLine />
+
+      <div class="flex flex-col gap-1.5 md:gap-3">
+        <label for="" class="font-bold leading-normal text-20 text-black"
+          >Upload Proof of Payment</label
+        >
+        <Input
+          icon="/public/icons/receipt-2.svg"
+          placeholder="Add an attachment"
+          name="startedAt"
+          id="startedAt"
+          type="text"
+          required={true}
+          fullWidth={true}
+        />
+      </div>
+
+      <DividerLine />
+
+      <div class="grid grid-cols-2 gap-3 lg:gap-5">
+        <Button text="Save as a Wishlist" variant="outline-black" />
+        <Button text="Confirm Payment" variant="pink" />
+      </div>
+    </div>
+
+    <!-- Credit Card Content -->
+    <div
+      id="credit-card-content"
+      class="tab-panel hidden transition-opacity duration-300 ease-in-out"
+    >
+      <div class="flex flex-col gap-5 items-start justify-start w-full">
+        <div class="p-6 bg-gray-50 rounded-lg w-full">
+          <h3 class="font-semibold text-18 text-black mb-4">
+            Credit Card Payment
+          </h3>
+          <p class="text-16 text-gray-600">
+            Credit card payment options will be available here. This is a
+            placeholder content for the credit card tab.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Redeem Points Content -->
+    <div
+      id="redeem-points-content"
+      class="tab-panel hidden transition-opacity duration-300 ease-in-out"
+    >
+      <div class="flex flex-col gap-5 items-start justify-start w-full">
+        <div class="p-6 bg-gray-50 rounded-lg w-full">
+          <h3 class="font-semibold text-18 text-black mb-4">Redeem Points</h3>
+          <p class="text-16 text-gray-600">
+            Points redemption options will be available here. This is a
+            placeholder content for the redeem points tab.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Tab functionality for payment method selection
+  document.addEventListener("DOMContentLoaded", function () {
+    const paymentTabs = document.querySelectorAll(".payment-tab");
+    const tabPanels = document.querySelectorAll(".tab-panel");
+
+    paymentTabs.forEach((tab) => {
+      tab.addEventListener("click", function (this: HTMLElement) {
+        const targetTab = this.getAttribute("data-tab");
+
+        // Remove active state from all tabs
+        paymentTabs.forEach((t) => {
+          t.classList.remove("border-2", "border-[#ff48b6]");
+          t.classList.add("border", "border-[#e4e6eb]");
+        });
+
+        // Add active state to clicked tab
+        this.classList.remove("border", "border-[#e4e6eb]");
+        this.classList.add("border-2", "border-[#ff48b6]");
+
+        // Hide all tab panels
+        tabPanels.forEach((panel) => {
+          panel.classList.add("hidden");
+          panel.classList.remove("active");
+        });
+
+        // Show target tab panel
+        const targetPanel = document.getElementById(`${targetTab}-content`);
+        if (targetPanel) {
+          targetPanel.classList.remove("hidden");
+          targetPanel.classList.add("active");
+        }
+
+        console.log("Selected payment method:", targetTab);
+      });
+    });
+  });
+</script>
