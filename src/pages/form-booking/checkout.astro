@@ -10,7 +10,9 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   >
     <h2 class="text-30 font-bold">Checkout Package</h2>
 
-    <div class="bg-white rounded-2xl md:rounded-[20px] p-4 md:p-6 lg:p-7.5">
+    <div
+      class="accordion-container bg-white rounded-2xl md:rounded-[20px] p-4 md:p-6 lg:p-7.5"
+    >
       <div class="accordion flex flex-col gap-20">
         <div
           class="accordion-button flex justify-between items-center cursor-pointer"
@@ -23,74 +25,66 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
           />
         </div>
 
-        <DividerLine />
-
         <div
-          class="accordion-body overflow-hidden transition-all duration-300 max-h-0"
+          class="accordion-body overflow-hidden transition-all duration-300 ease-in-out flex flex-col gap-20"
+          data-default-open="true"
         >
+        <DividerLine />
           <div
-            class="flex flex-col gap-[30px] items-start justify-start w-full"
+            class="flex flex-col gap-30 items-start justify-start w-full"
           >
-            <!-- First Row: Full Name and Email -->
-            <div
-              class="flex flex-col md:flex-row gap-5 items-start md:items-center justify-start w-full"
-            >
-              <div class="w-full md:flex-1">
-                <Input
-                  label="Full Name"
-                  icon="/public/icons/profile.svg"
-                  placeholder="Write your complete name"
-                  name="fullName"
-                  id="fullName"
-                  required={true}
-                  fullWidth={true}
-                />
-              </div>
-              <div class="w-full md:flex-1">
-                <Input
-                  label="Email Address"
-                  icon="/public/icons/sms.svg"
-                  placeholder="Write your email address"
-                  name="email"
-                  id="email"
-                  type="email"
-                  value="anggarisky|"
-                  required={true}
-                  fullWidth={true}
-                  customClass="border-2 border-[#ff48b6]"
-                />
-              </div>
+          <div class="flex flex-col gap-30 md:grid grid-cols-2 w-full">
+            <div class="w-full md:flex-1">
+              <Input
+                label="Full Name"
+                icon="/public/icons/profile.svg"
+                placeholder="Write your complete name"
+                name="fullName"
+                id="fullName"
+                required={true}
+                fullWidth={true}
+              />
             </div>
-
-            <!-- Second Row: Phone Number and Started At -->
-            <div
-              class="flex flex-col md:flex-row gap-5 items-start md:items-center justify-start w-full"
-            >
-              <div class="w-full md:flex-1">
-                <Input
-                  label="Phone Number"
-                  icon="/public/icons/call.svg"
-                  placeholder="Let us know your number"
-                  name="phone"
-                  id="phone"
-                  type="tel"
-                  required={true}
-                  fullWidth={true}
-                />
-              </div>
-              <div class="w-full md:flex-1">
-                <Input
-                  label="Started At"
-                  icon="/public/icons/calendar.svg"
-                  placeholder="Choose your date"
-                  name="startedAt"
-                  id="startedAt"
-                  type="date"
-                  required={true}
-                  fullWidth={true}
-                />
-              </div>
+            <div class="w-full md:flex-1">
+              <Input
+                label="Email Address"
+                icon="/public/icons/sms.svg"
+                placeholder="Write your email address"
+                name="email"
+                id="email"
+                type="email"
+                value="anggarisky|"
+                required={true}
+                fullWidth={true}
+                customClass="border-2 border-[#ff48b6]"
+              />
             </div>
+  
+            <div class="w-full md:flex-1">
+              <Input
+                label="Phone Number"
+                icon="/public/icons/call.svg"
+                placeholder="Let us know your number"
+                name="phone"
+                id="phone"
+                type="tel"
+                required={true}
+                fullWidth={true}
+              />
+            </div>
+            <div class="w-full md:flex-1">
+              <Input
+                label="Started At"
+                icon="/public/icons/calendar.svg"
+                placeholder="Choose your date"
+                name="startedAt"
+                id="startedAt"
+                type="date"
+                required={true}
+                fullWidth={true}
+              />
+            </div>
+          </div>
 
             <!-- Divider -->
             <DividerLine />
@@ -105,53 +99,44 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
                 />
               </div>
               <div class="font-semibold leading-normal text-16 text-black">
-                <p>Angga X is protecting your privacy better</p>
+                <p>Samawa is protecting your privacy better</p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Example: Second Accordion (Open by default) -->
+    <div
+      class="accordion-container bg-white rounded-2xl md:rounded-[20px] p-4 md:p-6 lg:p-7.5"
+    >
+      <div class="accordion flex flex-col gap-20">
+        <div
+          class="accordion-button flex justify-between items-center cursor-pointer"
+        >
+          <h3 class="text-20 font-bold">Payment Information</h3>
+          <img
+            src="/public/icons/arrow-circle-down.svg"
+            alt="toggle"
+            class="accordion-icon transition-transform duration-300"
+          />
+        </div>
+
+        <div
+          class="accordion-body overflow-hidden transition-all duration-300 ease-in-out"
+          data-default-open="true"
+        >
+          <div
+            class="flex flex-col gap-30 items-start justify-start w-full"
+          >
+            <DividerLine />
+            <div class="text-center w-full">
+              <p class="text-gray-600">Payment form will be here...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <script>
-    function toggleAccordion(button: HTMLElement) {
-      const accordion = button.closest(".accordion") as HTMLElement;
-      const body = accordion?.querySelector(".accordion-body") as HTMLElement;
-      const icon = accordion?.querySelector(".accordion-icon") as HTMLElement;
-
-      if (!accordion || !body || !icon) return;
-
-      // Toggle accordion state
-      if (body.classList.contains("max-h-0")) {
-        // Open accordion
-        body.classList.remove("max-h-0");
-        body.classList.add("max-h-[1000px]");
-        icon.style.transform = "rotate(180deg)";
-      } else {
-        // Close accordion
-        body.classList.remove("max-h-[1000px]");
-        body.classList.add("max-h-0");
-        icon.style.transform = "rotate(0deg)";
-      }
-    }
-
-    // Initialize accordion state and add event listeners
-    document.addEventListener("DOMContentLoaded", function () {
-      const accordionBody = document.querySelector(
-        ".accordion-body"
-      ) as HTMLElement;
-      if (accordionBody) {
-        accordionBody.classList.add("max-h-0");
-      }
-
-      // Add click event listeners to accordion buttons
-      const accordionButtons = document.querySelectorAll(".accordion-button");
-      accordionButtons.forEach((button) => {
-        button.addEventListener("click", function () {
-          toggleAccordion(this as HTMLElement);
-        });
-      });
-    });
-  </script>
 </BaseLayout>
