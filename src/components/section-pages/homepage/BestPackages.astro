@@ -79,7 +79,7 @@ export const weddingPackages = [
 ];
 ---
 
-<section class="px-4 max-w-[1130px] md:mx-auto overflow-hidden">
+<section class="px-4 md:px-16 lg:px-8 xl:px-0 max-w-[1130px] md:mx-auto overflow-hidden">
   <!-- Header Section -->
   <SectionHeaderLeftRight 
     title="Our Latest & Best\nWedding Packages"
@@ -109,7 +109,7 @@ export const weddingPackages = [
     </div>
     
     <!-- Tablet & Desktop: Grid -->
-    <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[30px]">
+    <div class="hidden md:grid md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-[30px]">
       {weddingPackages.slice(0, 4).map((pkg) => (
         <a href="/package-details">
           <CardPackage

@@ -10,18 +10,20 @@ import Modal from "../components/Modal.astro";
 
 <BaseLayout title="Package Details - Samawa Wedding">
   <div class="flex flex-col gap-4 md:gap-6 lg:gap-7.5">
-    <PageHeaderLeftRight
-      title="Nikah Muda Abadi Pantai Bali Nusa"
-      ratingCount="18,493"
-      stars={5}
-      showRating={true}
-      subTitleHtml=`<div class="flex gap-1.5 items-center">
-      <img src="/icons/location.svg" alt="">
-      <span class="font-bold text-black">Luxemborgio City</span>
-      </div>`
-    />
+    <div class="px-4 md:px-16 lg:px-8 xl:px-0">
+      <PageHeaderLeftRight
+        title="Nikah Muda Abadi Pantai Bali Nusa"
+        ratingCount="18,493"
+        stars={5}
+        showRating={true}
+        subTitleHtml=`<div class="flex gap-1.5 items-center">
+        <img src="/icons/location.svg" alt="">
+        <span class="font-bold text-black">Luxemborgio City</span>
+        </div>`
+      />
+    </div>
 
-    <div class="max-w-1130 mx-auto px-4 md:px-6 lg:px-8 xl:px-0 w-full">
+    <div class="max-w-1130 mx-auto px-4 md:px-16 lg:px-8 xl:px-0 w-full">
       <div class="flex flex-col gap-17_5">
         <div
           class="flex flex-col gap-3 md:grid grid-cols-8 md:gap-4 lg:gap-5 md:h-[550px]"
