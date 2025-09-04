@@ -1,0 +1,41 @@
+---
+export interface Props {
+  title: string;
+  defaultOpen?: boolean;
+  containerClass?: string;
+  buttonClass?: string;
+  bodyClass?: string;
+  iconSrc?: string;
+  iconAlt?: string;
+}
+
+const {
+  title,
+  defaultOpen = false,
+  containerClass = "bg-white rounded-2xl md:rounded-[20px] p-4 md:p-6 lg:p-7.5",
+  buttonClass = "flex justify-between items-center cursor-pointer",
+  bodyClass = "overflow-hidden transition-all duration-300 ease-in-out flex flex-col gap-20",
+  iconSrc = "/public/icons/arrow-circle-down.svg",
+  iconAlt = "toggle",
+} = Astro.props;
+---
+
+<div class={`accordion-container ${containerClass}`}>
+  <div class="accordion flex flex-col gap-20">
+    <div class={`accordion-button ${buttonClass}`}>
+      <h3 class="text-20 font-bold">{title}</h3>
+      <img
+        src={iconSrc}
+        alt={iconAlt}
+        class="accordion-icon transition-transform duration-300"
+      />
+    </div>
+
+    <div
+      class={`accordion-body ${bodyClass}`}
+      data-default-open={defaultOpen.toString()}
+    >
+      <slot />
+    </div>
+  </div>
+</div>

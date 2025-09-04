@@ -1,6 +1,7 @@
 ---
 import Input from "../../components/Input.astro";
 import DividerLine from "../../components/DividerLine.astro";
+import Accordion from "../../components/Accordion.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
@@ -10,133 +11,89 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   >
     <h2 class="text-30 font-bold">Checkout Package</h2>
 
-    <div
-      class="accordion-container bg-white rounded-2xl md:rounded-[20px] p-4 md:p-6 lg:p-7.5"
-    >
-      <div class="accordion flex flex-col gap-20">
-        <div
-          class="accordion-button flex justify-between items-center cursor-pointer"
-        >
-          <h3 class="text-20 font-bold">Customer Information</h3>
-          <img
-            src="/public/icons/arrow-circle-down.svg"
-            alt="toggle"
-            class="accordion-icon transition-transform duration-300"
-          />
-        </div>
-
-        <div
-          class="accordion-body overflow-hidden transition-all duration-300 ease-in-out flex flex-col gap-20"
-          data-default-open="true"
-        >
-        <DividerLine />
-          <div
-            class="flex flex-col gap-30 items-start justify-start w-full"
-          >
-          <div class="flex flex-col gap-30 md:grid grid-cols-2 w-full">
-            <div class="w-full md:flex-1">
-              <Input
-                label="Full Name"
-                icon="/public/icons/profile.svg"
-                placeholder="Write your complete name"
-                name="fullName"
-                id="fullName"
-                required={true}
-                fullWidth={true}
-              />
-            </div>
-            <div class="w-full md:flex-1">
-              <Input
-                label="Email Address"
-                icon="/public/icons/sms.svg"
-                placeholder="Write your email address"
-                name="email"
-                id="email"
-                type="email"
-                value="anggarisky|"
-                required={true}
-                fullWidth={true}
-                customClass="border-2 border-[#ff48b6]"
-              />
-            </div>
-  
-            <div class="w-full md:flex-1">
-              <Input
-                label="Phone Number"
-                icon="/public/icons/call.svg"
-                placeholder="Let us know your number"
-                name="phone"
-                id="phone"
-                type="tel"
-                required={true}
-                fullWidth={true}
-              />
-            </div>
-            <div class="w-full md:flex-1">
-              <Input
-                label="Started At"
-                icon="/public/icons/calendar.svg"
-                placeholder="Choose your date"
-                name="startedAt"
-                id="startedAt"
-                type="date"
-                required={true}
-                fullWidth={true}
-              />
-            </div>
+    <Accordion title="Customer Information" defaultOpen={true}>
+      <DividerLine />
+      <div class="flex flex-col gap-30 items-start justify-start w-full">
+        <div class="flex flex-col gap-30 md:grid grid-cols-2 w-full">
+          <div class="w-full md:flex-1">
+            <Input
+              label="Full Name"
+              icon="/public/icons/profile.svg"
+              placeholder="Write your complete name"
+              name="fullName"
+              id="fullName"
+              required={true}
+              fullWidth={true}
+            />
+          </div>
+          <div class="w-full md:flex-1">
+            <Input
+              label="Email Address"
+              icon="/public/icons/sms.svg"
+              placeholder="Write your email address"
+              name="email"
+              id="email"
+              type="email"
+              value="anggarisky|"
+              required={true}
+              fullWidth={true}
+              customClass="border-2 border-[#ff48b6]"
+            />
           </div>
 
-            <!-- Divider -->
-            <DividerLine />
+          <div class="w-full md:flex-1">
+            <Input
+              label="Phone Number"
+              icon="/public/icons/call.svg"
+              placeholder="Let us know your number"
+              name="phone"
+              id="phone"
+              type="tel"
+              required={true}
+              fullWidth={true}
+            />
+          </div>
+          <div class="w-full md:flex-1">
+            <Input
+              label="Started At"
+              icon="/public/icons/calendar.svg"
+              placeholder="Choose your date"
+              name="startedAt"
+              id="startedAt"
+              type="date"
+              required={true}
+              fullWidth={true}
+            />
+          </div>
+        </div>
 
-            <!-- Privacy Notice -->
-            <div class="flex gap-2.5 items-center justify-start w-full">
-              <div class="relative shrink-0 size-8">
-                <img
-                  src="/public/icons/security-user.svg"
-                  alt="security"
-                  class="block max-w-none size-full"
-                />
-              </div>
-              <div class="font-semibold leading-normal text-16 text-black">
-                <p>Samawa is protecting your privacy better</p>
-              </div>
-            </div>
+        <!-- Divider -->
+        <DividerLine />
+
+        <!-- Privacy Notice -->
+        <div class="flex gap-2.5 items-center justify-start w-full">
+          <div class="relative shrink-0 size-8">
+            <img
+              src="/public/icons/security-user.svg"
+              alt="security"
+              class="block max-w-none size-full"
+            />
+          </div>
+          <div class="font-semibold leading-normal text-16 text-black">
+            <p>Samawa is protecting your privacy better</p>
           </div>
         </div>
       </div>
-    </div>
+    </Accordion>
 
     <!-- Example: Second Accordion (Open by default) -->
-    <div
-      class="accordion-container bg-white rounded-2xl md:rounded-[20px] p-4 md:p-6 lg:p-7.5"
-    >
-      <div class="accordion flex flex-col gap-20">
-        <div
-          class="accordion-button flex justify-between items-center cursor-pointer"
-        >
-          <h3 class="text-20 font-bold">Payment Information</h3>
-          <img
-            src="/public/icons/arrow-circle-down.svg"
-            alt="toggle"
-            class="accordion-icon transition-transform duration-300"
-          />
-        </div>
-
-        <div
-          class="accordion-body overflow-hidden transition-all duration-300 ease-in-out"
-          data-default-open="true"
-        >
-          <div
-            class="flex flex-col gap-30 items-start justify-start w-full"
-          >
-            <DividerLine />
-            <div class="text-center w-full">
-              <p class="text-gray-600">Payment form will be here...</p>
-            </div>
-          </div>
+    <Accordion title="Payment Information" defaultOpen={true}>
+      <div class="flex flex-col gap-30 items-start justify-start w-full">
+        <DividerLine />
+        <div class="text-center w-full">
+          <p class="text-gray-600">Payment form will be here...</p>
         </div>
       </div>
-    </div>
+    </Accordion>
   </div>
 </BaseLayout>
