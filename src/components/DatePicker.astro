@@ -1,0 +1,126 @@
+---
+// Props untuk DatePicker component
+const {
+  label = "",
+  showLabel = true,
+  icon = "",
+  placeholder = "",
+  value = "",
+  name = "",
+  id = "",
+  required = false,
+  disabled = false,
+  error = false,
+  customClass = "",
+  fullWidth = false,
+  min = "",
+  max = "",
+} = Astro.props;
+
+// Base classes untuk datepicker container
+const baseInputClasses = [
+  "flex gap-2.5 items-center justify-start px-3 py-2.5 md:px-4 md:py-3 lg:px-5 lg:py-3.5 relative rounded-[25px] md:rounded-[30px] lg:rounded-[50px] w-full transition-all duration-200",
+  "border border-[#e4e6eb] border-solid overflow-hidden",
+  error ? "border-red-500" : "",
+  disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer",
+  fullWidth ? "w-full" : "",
+  customClass,
+]
+  .filter(Boolean)
+  .join(" ");
+
+// Label classes
+const labelClasses = [
+  "leading-[0] not-italic relative shrink-0 text-16 text-black w-full",
+]
+  .filter(Boolean)
+  .join(" ");
+
+// Icon classes
+const iconClasses = ["relative shrink-0 size-5 md:size-5 lg:size-6"]
+  .filter(Boolean)
+  .join(" ");
+
+// Input text classes
+const inputTextClasses = [
+  "leading-normal not-italic relative overflow-hidden shrink-0 text-16 text-black text-nowrap bg-transparent outline-none border-none flex-1 w-full cursor-pointer",
+  disabled ? "cursor-not-allowed" : "",
+  icon ? "pl-0" : "pl-3",
+]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<div
+  class="content-stretch flex flex-col gap-2 items-start justify-start relative size-full p-0.5"
+>
+  {
+    showLabel && label && (
+      <div class={labelClasses}>
+        <p class="leading-[normal]">{label}</p>
+      </div>
+    )
+  }
+
+  <div
+    class={`${baseInputClasses} focus-within:shadow-[0_0_0_2px_#ff48b6]`}
+    data-datepicker-container
+    data-datepicker-id={id}
+  >
+    {
+      icon && (
+        <div class={iconClasses} data-name="datepicker-icon">
+          <img
+            alt="datepicker icon"
+            class="block max-w-none size-full"
+            src={icon}
+          />
+        </div>
+      )
+    }
+
+    <input
+      type="date"
+      name={name}
+      id={id}
+      value={value}
+      placeholder={placeholder}
+      required={required}
+      disabled={disabled}
+      min={min}
+      max={max}
+      class={`${inputTextClasses} focus:outline-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-inner-spin-button]:hidden [&::-webkit-outer-spin-button]:hidden`}
+      data-datepicker-field
+    />
+  </div>
+</div>
+
+<script>
+  // Handle datepicker click events and value updates
+  document.addEventListener("DOMContentLoaded", function () {
+    const datepickerContainers = document.querySelectorAll(
+      "[data-datepicker-container]"
+    );
+
+    datepickerContainers.forEach((container) => {
+      const datepickerId = container.getAttribute("data-datepicker-id");
+      if (datepickerId) {
+        const dateInput = document.getElementById(
+          datepickerId
+        ) as HTMLInputElement;
+
+        if (dateInput && dateInput.type === "date") {
+          // Handle click to show picker
+          container.addEventListener("click", function () {
+            if ("showPicker" in dateInput) {
+              (dateInput as any).showPicker();
+            }
+          });
+
+          // Simple click handler to show date picker
+          // No need for complex placeholder management since we're using default
+        }
+      }
+    });
+  });
+</script>
