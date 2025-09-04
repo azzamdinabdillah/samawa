@@ -18,7 +18,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         <Accordion title="Customer Information" defaultOpen={true}>
           <DividerLine />
           <div class="flex flex-col gap-30 items-start justify-start w-full">
-            <div class="flex flex-col gap-30 md:grid grid-cols-2 w-full">
+            <div class="flex flex-col gap-30 lg:grid grid-cols-2 w-full p-1">
               <div class="w-full md:flex-1">
                 <Input
                   label="Full Name"
@@ -38,10 +38,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
                   name="email"
                   id="email"
                   type="email"
-                  value="anggarisky|"
                   required={true}
                   fullWidth={true}
-                  customClass="border-2 border-[#ff48b6]"
                 />
               </div>
 
@@ -97,7 +95,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
             <!-- Payment Summary -->
             <div class="flex flex-col gap-5 items-start justify-start w-full">
               <!-- Package Quantity -->
-              <div class="flex gap-30 items-center justify-start w-full">
+              <div class="flex gap-1 md:gap-5 lg:gap-7.5 md:items-center md:flex-row justify-start w-full flex-col">
                 <div
                   class="flex gap-2.5 items-center justify-start min-w-0 flex-1"
                 >
@@ -118,7 +116,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
               </div>
 
               <!-- Package Price -->
-              <div class="flex gap-30 items-center justify-start w-full">
+              <div class="flex gap-1 md:gap-5 lg:gap-7.5 md:items-center md:flex-row justify-start w-full flex-col">
                 <div
                   class="flex gap-2.5 items-center justify-start min-w-0 flex-1"
                 >
@@ -139,7 +137,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
               </div>
 
               <!-- Country Tax -->
-              <div class="flex gap-30 items-center justify-start w-full">
+              <div class="flex gap-1 md:gap-5 lg:gap-7.5 md:items-center md:flex-row justify-start w-full flex-col">
                 <div
                   class="flex gap-2.5 items-center justify-start min-w-0 flex-1"
                 >
@@ -160,7 +158,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
               </div>
 
               <!-- Consultation & Insurance -->
-              <div class="flex gap-30 items-center justify-start w-full">
+              <div class="flex gap-1 md:gap-5 lg:gap-7.5 md:items-center md:flex-row justify-start w-full flex-col">
                 <div
                   class="flex gap-2.5 items-center justify-start min-w-0 flex-1"
                 >
@@ -181,7 +179,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
               </div>
 
               <!-- Grand Total -->
-              <div class="flex gap-30 items-center justify-start w-full">
+              <div class="flex gap-1 md:gap-5 lg:gap-7.5 md:items-center md:flex-row justify-start w-full flex-col">
                 <div
                   class="flex gap-2.5 items-center justify-start min-w-0 flex-1"
                 >
@@ -213,11 +211,11 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       </div>
 
       <div
-        class="bg-white flex flex-col gap-5 items-start justify-start p-30 relative rounded-3xl lg:rounded-[30px]"
+        class="bg-white relative flex flex-col gap-20 items-start justify-start p-30 rounded-3xl lg:rounded-[30px]"
       >
         <!-- Package Title -->
         <div
-          class="font-bold leading-[0] min-w-full not-italic relative shrink-0 text-20 text-black"
+          class="font-bold leading-[0] min-w-full not-italic relative shrink-0 text-lg md:text-xl text-black"
         >
           <p class="leading-[normal]">
             Nikah Muda Abadi Pantai Bali Indah Sejahtera
@@ -232,9 +230,9 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
         <!-- Package Price -->
         <div
-          class="font-bold leading-[0] min-w-full not-italic relative shrink-0 text-[#ff48b6] text-20"
+          class="font-bold leading-[0] min-w-full not-italic relative shrink-0 text-[#ff48b6] text-xl"
         >
-          <p class="leading-[normal] ">Rp 198.493.000</p>
+          <p class="leading-[normal]">Rp 198.493.000</p>
         </div>
 
         <!-- Divider Line -->

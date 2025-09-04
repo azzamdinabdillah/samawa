@@ -10,10 +10,10 @@ import Input from "./Input.astro";
   class="payment-method-selector flex flex-col gap-30 items-start justify-start w-full"
 >
   <!-- Tab Headers -->
-  <div class="flex flex-col gap-5 md:flex-row w-full">
+  <div class="flex gap-5 flex-row md:flex-wrap w-full items-center overflow-x-auto no-scrollbar">
     <!-- Bank Transfer Tab -->
     <div
-      class="payment-tab basis-0 flex gap-2.5 grow items-center justify-start min-h-px min-w-px px-5 py-3.5 relative rounded-[50px] shrink-0 cursor-pointer border-2 border-[#ff48b6] bg-white transition-all duration-200 ease-in-out hover:-translate-y-0.5"
+      class="payment-tab basis-0 flex gap-2.5 grow items-center justify-start py-2 md:px-5 px-4 md:py-3.5 relative rounded-[50px] shrink-0 cursor-pointer border-2 border-[#ff48b6] bg-white transition-all duration-200 ease-in-out"
       data-tab="bank-transfer"
     >
       <div class="relative shrink-0 size-6">
@@ -32,7 +32,7 @@ import Input from "./Input.astro";
 
     <!-- Credit Card Tab -->
     <div
-      class="payment-tab basis-0 flex gap-2.5 grow items-center justify-start min-h-px min-w-px px-5 py-3.5 relative rounded-[50px] shrink-0 cursor-pointer border border-[#e4e6eb] bg-white transition-all duration-200 ease-in-out hover:-translate-y-0.5"
+      class="payment-tab basis-0 flex gap-2.5 grow items-center justify-start py-2 md:px-5 px-4 md:py-3.5 relative rounded-[50px] shrink-0 cursor-pointer border border-[#e4e6eb] bg-white transition-all duration-200 ease-in-out"
       data-tab="credit-card"
     >
       <div class="relative shrink-0 size-6">
@@ -51,7 +51,7 @@ import Input from "./Input.astro";
 
     <!-- Redeem Points Tab -->
     <div
-      class="payment-tab basis-0 flex gap-2.5 grow items-center justify-start min-h-px min-w-px px-5 py-3.5 relative rounded-[50px] shrink-0 cursor-pointer border border-[#e4e6eb] bg-white transition-all duration-200 ease-in-out hover:-translate-y-0.5"
+      class="payment-tab basis-0 flex gap-2.5 grow items-center justify-start py-2 md:px-5 px-4 md:py-3.5 relative rounded-[50px] shrink-0 cursor-pointer border border-[#e4e6eb] bg-white transition-all duration-200 ease-in-out"
       data-tab="redeem-points"
     >
       <div class="relative shrink-0 size-6">
@@ -77,7 +77,7 @@ import Input from "./Input.astro";
       class="tab-panel active transition-opacity duration-300 ease-in-out flex flex-col gap-30"
     >
       <div
-        class="flex flex-col md:grid grid-cols-2 gap-30 items-start justify-start w-full"
+        class="flex flex-col xl:grid grid-cols-2 gap-30 items-start justify-start w-full"
       >
         <!-- BCA Bank Option -->
         <div class="flex gap-3 items-center justify-start w-full">
@@ -159,7 +159,7 @@ import Input from "./Input.astro";
 
       <DividerLine />
 
-      <div class="grid grid-cols-2 gap-3 lg:gap-5">
+      <div class="grid md:grid-cols-2 gap-3 lg:gap-5">
         <Button text="Save as a Wishlist" variant="outline-black" />
         <Button text="Confirm Payment" variant="pink" />
       </div>
