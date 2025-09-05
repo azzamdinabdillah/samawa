@@ -69,6 +69,10 @@
   @apply text-[#ff48b6];
 }
 
+.bg-pink {
+  @apply bg-[#ff48b6];
+}
+
 .text-30 {
   @apply text-[22px] md:text-2xl lg:text-[30px];
 }
@@ -81,15 +85,15 @@
   @apply flex flex-col gap-4 md:gap-5 lg:gap-7.5;
 }
 
-.gap-20{
+.gap-20 {
   @apply gap-3.5 md:gap-4 lg:gap-5;
 }
 
-.gap-30{
+.gap-30 {
   @apply gap-4 md:gap-5 lg:gap-7.5;
 }
 
-.p-30{
+.p-30 {
   @apply p-3.5 md:p-5 lg:p-7.5;
 }
 
@@ -109,7 +113,7 @@
 }
 
 .marquee-content {
-  @apply flex gap-4 lg:gap-10 ;
+  @apply flex gap-4 lg:gap-10;
 }
 
 @keyframes marquee {

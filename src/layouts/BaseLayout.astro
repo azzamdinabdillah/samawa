@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import "swiper/css/bundle";
 
-const { title = "Home", backgroundColor = "bg-white" } = Astro.props;
+const { title = "Home", backgroundColor = "bg-white", noMarginTop = false, noFlex = false } = Astro.props;
 ---
 
 <html lang="en">
@@ -27,7 +27,7 @@ const { title = "Home", backgroundColor = "bg-white" } = Astro.props;
   <body class={backgroundColor}>
     <Navbar />
     <div
-      class="flex flex-col gap-8 md:gap-14 lg:gap-[70px] mt-20 md:mt-24 lg:mt-32"
+      class={`${!noFlex ? "flex flex-col gap-8 md:gap-14 lg:gap-[70px]" : ""}${!noMarginTop ? " mt-20 md:mt-24 lg:mt-32" : ""}`}
     >
       <slot />
       <Footer />
