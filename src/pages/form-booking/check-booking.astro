@@ -7,61 +7,69 @@ import Button from "../../components/Button.astro";
 <BaseLayout title="Check Booking" backgroundColor="bg-gray" noMarginTop noFlex>
   <div class="relative lg:min-h-screen w-full lg:grid grid-cols-2">
     <!-- Form Container -->
-     <div class="h-full flex justify-center items-center py-10 pt-[100px] md:py-20 md:pt-32 px-4">
-         <div
-           class="bg-white w-full h-fit rounded-[16px] md:rounded-[18px] lg:rounded-[20px] p-6 md:p-8 lg:p-[30px] max-w-[385px] shadow-lg"
-         >
-           <!-- Title -->
-           <h1
-             class="font-bold text-[18px] md:text-[19px] lg:text-[20px] text-black mb-4 md:mb-5 lg:mb-5 leading-normal"
-           >
-             Check My Booking
-           </h1>
-     
-           <!-- Form Fields -->
-           <div class="flex flex-col gap-4 md:gap-5 lg:gap-5">
-             <!-- Booking ID Input -->
-             <div class="w-full">
-               <Input
-                 label="Booking ID"
-                 placeholder="Write your booking id"
-                 icon="/icons/note-favorite.svg"
-                 name="bookingId"
-                 id="bookingId"
-                 required={true}
-                 fullWidth={true}
-               />
-             </div>
-     
-             <!-- Phone Number Input -->
-             <div class="w-full">
-               <Input
-                 label="Phone Number"
-                 placeholder="Enter your phone number"
-                 icon="/icons/call.svg"
-                 name="phoneNumber"
-                 id="phoneNumber"
-                 type="number"
-                 required={true}
-                 error={false}
-                 fullWidth={true}
-               />
-             </div>
-     
-             <!-- Submit Button -->
-             <div class="w-full">
-               <Button
-                 text="Find Booking Details"
-                 variant="pink"
-                 size="normal"
-                 fullWidth={true}
-                 type="submit"
-               />
-             </div>
-           </div>
-         </div>
-     </div>
+    <div
+      class="h-full flex justify-center items-center py-10 pt-[100px] md:py-20 md:pt-32 px-4"
+    >
+      <div
+        class="bg-white w-full h-fit rounded-[16px] md:rounded-[18px] lg:rounded-[20px] p-6 md:p-8 lg:p-[30px] max-w-[385px] shadow-lg"
+      >
+        <!-- Title -->
+        <h1
+          class="font-bold text-[18px] md:text-[19px] lg:text-[20px] text-black mb-4 md:mb-5 lg:mb-5 leading-normal"
+        >
+          Check My Booking
+        </h1>
 
-    <img src="/public/images/wedding-1.png" alt="" class="w-full h-full object-cover hidden lg:block"/>
+        <!-- Form Fields -->
+        <div class="flex flex-col gap-4 md:gap-5 lg:gap-5">
+          <!-- Booking ID Input -->
+          <div class="w-full">
+            <Input
+              label="Booking ID"
+              placeholder="Write your booking id"
+              icon="/icons/note-favorite.svg"
+              name="bookingId"
+              id="bookingId"
+              required={true}
+              fullWidth={true}
+            />
+          </div>
+
+          <!-- Phone Number Input -->
+          <div class="w-full">
+            <Input
+              label="Phone Number"
+              placeholder="Enter your phone number"
+              icon="/icons/call.svg"
+              name="phoneNumber"
+              id="phoneNumber"
+              type="number"
+              required={true}
+              error={false}
+              fullWidth={true}
+            />
+          </div>
+
+          <!-- Submit Button -->
+          <div class="w-full">
+            <a href="/form-booking/check-booking-result">
+              <Button
+                text="Find Booking Details"
+                variant="pink"
+                size="normal"
+                fullWidth={true}
+                type="submit"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <img
+      src="/public/images/wedding-1.png"
+      alt=""
+      class="w-full h-full object-cover hidden lg:block"
+    />
   </div>
 </BaseLayout>
