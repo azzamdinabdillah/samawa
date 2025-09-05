@@ -1,0 +1,17 @@
+---
+// Props untuk BadgeStatus component
+const { text = "SUCCESS", variant = "red", customClass = "" } = Astro.props;
+
+// Definisi warna berdasarkan variant
+const variantClasses: Record<string, string> = {
+  red: "bg-red text-white",
+  black: "bg-black text-white",
+};
+
+// Menggabungkan class
+const badgeClass = `badge-status py-1.5 px-2.5 text-14 uppercase rounded-full font-semibold ${variantClasses[variant] || variantClasses.red} ${customClass}`;
+---
+
+<div class={badgeClass}>
+  {text}
+</div>
