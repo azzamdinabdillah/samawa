@@ -151,10 +151,11 @@ import Input from "./Input.astro";
         >
         <Input
           icon="/public/icons/receipt-2.svg"
-          placeholder="Add an attachment"
-          name="startedAt"
-          id="startedAt"
-          type="text"
+          placeholder="Pilih file bukti pembayaran"
+          name="paymentProof"
+          id="paymentProof"
+          type="file"
+          accept="image/*,.pdf"
           required={true}
           fullWidth={true}
         />

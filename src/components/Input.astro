@@ -15,6 +15,7 @@ const {
   customClass = "",
   fullWidth = false,
   isDatePicker = false,
+  accept = "",
 } = Astro.props;
 
 // Base classes untuk input
@@ -48,6 +49,22 @@ const inputTextClasses = [
 ]
   .filter(Boolean)
   .join(" ");
+
+// File input classes
+const fileInputClasses = [
+  "file-upload-input absolute inset-0 w-full h-full opacity-0 cursor-pointer",
+  disabled ? "cursor-not-allowed" : "",
+]
+  .filter(Boolean)
+  .join(" ");
+
+// File display classes
+const fileDisplayClasses = [
+  "leading-[0] not-italic relative shrink-0 text-16 text-gray-500 text-nowrap bg-transparent outline-none border-none flex-1 w-full pointer-events-none pr-3 md:pr-4 lg:pr-5",
+  disabled ? "cursor-not-allowed" : "",
+]
+  .filter(Boolean)
+  .join(" ");
 ---
 
 <div
@@ -62,7 +79,7 @@ const inputTextClasses = [
   }
 
   <div
-    class={`${baseInputClasses} focus-within:shadow-[0_0_0_2px_#ff48b6]`}
+    class={`${baseInputClasses} focus-within:shadow-[0_0_0_2px_#ff48b6] ${type === 'file' ? 'cursor-pointer' : ''}`}
     data-input-container
   >
     {
@@ -73,16 +90,34 @@ const inputTextClasses = [
       )
     }
 
-    <input
-      type={type}
-      name={name}
-      id={id}
-      value={value}
-      placeholder={placeholder}
-      required={required}
-      disabled={disabled}
-      class={`${inputTextClasses} focus:outline-none placeholder:text-gray-400${isDatePicker ? " datepicker-input [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-inner-spin-button]:hidden [&::-webkit-outer-spin-button]:hidden" : ""}`}
-      data-input-field
-    />
+    {type === 'file' ? (
+      <>
+        <input
+          type="file"
+          name={name}
+          id={id}
+          accept={accept}
+          required={required}
+          disabled={disabled}
+          class={fileInputClasses}
+          data-input-field
+        />
+        <div class={fileDisplayClasses} data-file-display data-placeholder={placeholder || "Pilih file..."}>
+          {value || placeholder || "Pilih file..."}
+        </div>
+      </>
+    ) : (
+      <input
+        type={type}
+        name={name}
+        id={id}
+        value={value}
+        placeholder={placeholder}
+        required={required}
+        disabled={disabled}
+        class={`${inputTextClasses} focus:outline-none placeholder:text-gray-400${isDatePicker ? " datepicker-input [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-inner-spin-button]:hidden [&::-webkit-outer-spin-button]:hidden" : ""}`}
+        data-input-field
+      />
+    )}
   </div>
 </div>
