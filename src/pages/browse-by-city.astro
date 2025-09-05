@@ -40,7 +40,7 @@ import PageHeaderLeftRight from "../components/PageHeaderLeftRight.astro";
           <div class="flex gap-4 md:hidden pb-4">
             {
               weddingPackages.map((pkg) => (
-                <div class="flex-shrink-0 w-[280px]">
+                <a href="/package-details" class="flex-shrink-0 w-[280px]">
                   <CardPackage
                     isPopular={pkg.isPopular}
                     title={pkg.title}
@@ -49,7 +49,7 @@ import PageHeaderLeftRight from "../components/PageHeaderLeftRight.astro";
                     vendor={pkg.vendor}
                     image={pkg.image}
                   />
-                </div>
+                </a>
               ))
             }
           </div>
@@ -60,14 +60,16 @@ import PageHeaderLeftRight from "../components/PageHeaderLeftRight.astro";
           >
             {
               weddingPackages.map((pkg) => (
-                <CardPackage
-                  isPopular={pkg.isPopular}
-                  title={pkg.title}
-                  price={pkg.price}
-                  location={pkg.location}
-                  vendor={pkg.vendor}
-                  image={pkg.image}
-                />
+                <a href="/package-details">
+                  <CardPackage
+                    isPopular={pkg.isPopular}
+                    title={pkg.title}
+                    price={pkg.price}
+                    location={pkg.location}
+                    vendor={pkg.vendor}
+                    image={pkg.image}
+                  />
+                </a>
               ))
             }
           </div>
