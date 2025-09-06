@@ -16,6 +16,7 @@ const {
   fullWidth = false,
   isDatePicker = false,
   accept = "",
+  maxWidth = "100%",
 } = Astro.props;
 
 // Base classes untuk input
@@ -79,8 +80,9 @@ const fileDisplayClasses = [
   }
 
   <div
-    class={`${baseInputClasses} focus-within:shadow-[0_0_0_2px_#ff48b6] ${type === 'file' ? 'cursor-pointer' : ''}`}
+    class={`${baseInputClasses} focus-within:shadow-[0_0_0_2px_#ff48b6] ${type === 'file' ? 'cursor-pointer' : ''} ${maxWidth ? `max-w-[${maxWidth}]` : ''}`}
     data-input-container
+    style={maxWidth ? `max-width: ${maxWidth};` : ''}
   >
     {
       icon && (
