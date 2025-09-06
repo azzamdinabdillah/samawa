@@ -17,6 +17,10 @@
   display: none; /* Chrome, Safari, Opera */
 }
 
+html {
+  scroll-padding-top: 130px; /* tinggi navbar */
+}
+
 .max-w-1130 {
   @apply max-w-[1130px];
 }
