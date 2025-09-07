@@ -12,14 +12,14 @@ import Modal from "../components/Modal.astro";
   <div class="flex flex-col gap-4 md:gap-6 lg:gap-7.5">
     <div class="px-4 md:px-16 lg:px-8 xl:px-0 max-w-1130 mx-auto w-full">
       <PageHeaderLeftRight
-        title="Nikah Muda Abadi Pantai Bali Nusa"
+        title="Eternal Young Marriage at Bali Nusa Beach"
         ratingCount="18,493"
         stars={5}
         showRating={true}
-        subTitleHtml=`<div class="flex gap-1.5 items-center">
+        subTitleHtml={`<div class="flex gap-1.5 items-center">
         <img src="/icons/location.svg" alt="">
         <span class="font-bold text-black">Luxemborgio City</span>
-        </div>`
+        </div>`}
       />
     </div>
 
@@ -145,7 +145,7 @@ import Modal from "../components/Modal.astro";
                   {Array.from({ length: 4 }).map((_, idx) => (
                     <TestimonialCard
                       rating={5}
-                      testimonial="Keren banget Samawa, gue bisa nikah dengan pengalaman bagus dengan harga terjangkau! God."
+                      testimonial="Samawa is amazing, I was able to get married with a great experience at an affordable price! God."
                       name="Andriana Putri"
                       occupation="Programmer"
                       image="/images/wedding-2.png"
@@ -184,7 +184,7 @@ import Modal from "../components/Modal.astro";
                   />
                 </div>
                 <p class="text-16 text-black leading-[24px] md:leading-[28px]">
-                  Dekorasi elegan dan mewah, menciptakan suasana pernikahan impian Anda.
+                  Elegant, luxurious decor for your dream wedding event.
                 </p>
               </div>
               <div class="flex gap-3 items-center">
@@ -196,7 +196,7 @@ import Modal from "../components/Modal.astro";
                   />
                 </div>
                 <p class="text-16 text-black leading-[24px] md:leading-[28px]">
-                  Didukung tim profesional dan ramah, memastikan acara berjalan lancar.
+                  Professional, friendly team for a smooth, worry-free event.
                 </p>
               </div>
               <div class="flex gap-3 items-center">
@@ -208,7 +208,7 @@ import Modal from "../components/Modal.astro";
                   />
                 </div>
                 <p class="text-16 text-black leading-[24px] md:leading-[28px]">
-                  Paket lengkap dan hemat, cocok untuk berbagai kebutuhan pernikahan.
+                  Complete, affordable package for all your wedding needs.
                 </p>
               </div>
             </div>
@@ -270,7 +270,7 @@ import Modal from "../components/Modal.astro";
         id="package-modal"
         image="/images/wedding-1.png"
         imageAlt="Wedding Package"
-        header=`
+        header={`
           <div class="flex flex-col gap-2 md:gap-2.5 items-start">
             <h3 class="font-bold text-20 text-black leading-normal">
               Pre Post Wedding Photography Album
@@ -291,13 +291,13 @@ import Modal from "../components/Modal.astro";
               </div>
             </div>
           </div>
-        `
-        body=`
+        `}
+        body={`
         <div class="flex flex-col gap-[10px] text-16">
           <p class="font-bold">About</p>
           <p class="leading-[225%]">Our exclusive wedding package offers an unforgettable celebration tailored to your dreams. Enjoy a stunning venue, elegant decorations, and a delectable gourmet menu crafted by top chefs. Capture every precious moment with professional photography and videography. Dance the night away with a live band or DJ.</p>
         </div>
-        `
+        `}
         isOpen={true}
       />
     </div>
