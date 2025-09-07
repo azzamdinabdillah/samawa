@@ -4,7 +4,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Booking Finished" backgroundColor="bg-gray">
-  <div class="flex items-center justify-center px-4 md:px-6 lg:px-8">
+  <div class="flex items-center justify-center px-4 md:px-6 lg:px-8 lg:min-h-[70vh]">
     <div
       class="bg-white rounded-3xl md:rounded-[40px] p-6 md:p-8 lg:p-10 w-full max-w-md md:max-w-lg lg:max-w-[430px] flex flex-col gap-4 md:gap-5"
     >
@@ -51,14 +51,14 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         <p
           class="text-16 lg:text-[16px] font-normal text-black leading-relaxed"
         >
-          Gunakan kode booking di atas untuk memeriksa status pemesananmu
+          Use the booking code above to check your booking status
         </p>
       </div>
 
       <!-- Action Buttons -->
       <div class="flex flex-col gap-3">
         <a href="/#best-packages" class="inline-block w-full">
-          <Button variant="pink" fullWidth>Booking Other Package</Button>
+          <Button variant="pink" fullWidth>Book Another Package</Button>
         </a>
 
         <a href="/form-booking/check-booking" class="inline-block w-full">

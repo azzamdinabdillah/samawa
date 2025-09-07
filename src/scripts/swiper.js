@@ -1,26 +1,26 @@
 import Swiper from "swiper";
 import { Autoplay } from "swiper/modules";
 
-// Inisialisasi Swiper setelah DOM loaded
+// Initialize Swiper after DOM is loaded
 document.addEventListener("DOMContentLoaded", function () {
   const swiper = new Swiper(".wedding-slider", {
-    // Modules yang digunakan
+    // Modules used
     modules: [Autoplay],
 
-    // Konfigurasi dasar
-    slidesPerView: 1.8, // Menampilkan slide tengah penuh + sedikit slide samping
+    // Basic configuration
+    slidesPerView: 1.8, // Show the center slide fully + a bit of side slides
     spaceBetween: 30,
     centeredSlides: true,
-    initialSlide: 1, // Mulai dari slide ke-2 (index 1)
+    initialSlide: 1, // Start from the 2nd slide (index 1)
 
-    // Autoplay
+    // Autoplay settings
     autoplay: {
       delay: 3000,
       disableOnInteraction: false,
       pauseOnMouseEnter: false,
     },
 
-    // Loop untuk autoplay yang smooth
+    // Enable loop for smooth autoplay
     loop: true,
 
     // Responsive breakpoints

@@ -6,6 +6,7 @@ import BonusCard from "../components/BonusCard.astro";
 import TestimonialCard from "../components/TestimonialCard.astro";
 import Button from "../components/Button.astro";
 import Modal from "../components/Modal.astro";
+import { testimonials } from "../components/section-pages/homepage/Testimonial.astro";
 ---
 
 <BaseLayout title="Package Details - Samawa Wedding">
@@ -43,15 +44,6 @@ import Modal from "../components/Modal.astro";
               <Badge
                 text="POPULAR"
                 icon="/icons/crown-white.svg"
-                variant="white"
-              />
-            </div>
-            <div
-              class="absolute bottom-3 left-3 md:bottom-4 md:left-4 lg:bottom-5 lg:left-5"
-            >
-              <Badge
-                text="BROCHURE.PDF"
-                icon="/icons/document-download.svg"
                 variant="white"
               />
             </div>
@@ -142,14 +134,14 @@ import Modal from "../components/Modal.astro";
               </div>
               <div class="overflow-hidden w-full">
                 <div class="flex flex-row gap-3 md:gap-4 lg:gap-5 lg:grid grid-cols-2 overflow-x-auto no-scrollbar">
-                  {Array.from({ length: 4 }).map((_, idx) => (
-                    <TestimonialCard
-                      rating={5}
-                      testimonial="Samawa is amazing, I was able to get married with a great experience at an affordable price! God."
-                      name="Andriana Putri"
-                      occupation="Programmer"
-                      image="/images/wedding-2.png"
-                      customClass="max-w-[300px] lg:max-w-full"
+                  {testimonials.slice(0, 4).map((testimonial) => (
+                    <TestimonialCard 
+                      rating={testimonial.rating}
+                      testimonial={testimonial.testimonial}
+                      name={testimonial.name}
+                      occupation={testimonial.occupation}
+                      image={testimonial.image}
+                      customClass="max-w-[280px] lg:max-w-[340px]"
                     />
                   ))}
                 </div>
